@@ -11,6 +11,7 @@ gem 'haml'
 gem 'omniauth-facebook', '1.4.0'
 gem 'koala'
 gem 'figaro'
+gem 'gon'
 gem 'meta_request'
 
 # Gems used only for assets and not required
