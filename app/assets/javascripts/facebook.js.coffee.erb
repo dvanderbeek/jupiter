@@ -1,10 +1,15 @@
 jQuery ->
   $('body').prepend('<div id="fb-root"></div>')
 
-  $.ajax
-    url: "#{window.location.protocol}//connect.facebook.net/en_US/all.js"
-    dataType: 'script'
-    cache: true
+  ((d, s, id) ->
+    js = undefined
+    fjs = d.getElementsByTagName(s)[0]
+    return  if d.getElementById(id)
+    js = d.createElement(s)
+    js.id = id
+    js.src = "//connect.facebook.net/en_US/all.js"
+    fjs.parentNode.insertBefore js, fjs
+  ) document, "script", "facebook-jssdk"
 
 
 window.fbAsyncInit = ->
@@ -13,7 +18,12 @@ window.fbAsyncInit = ->
   $('#sign_in').click (e) ->
     e.preventDefault()
     FB.login (response) ->
-      window.location = '/auth/facebook/callback' if response.authResponse
+      if response.authResponse
+        console.log "Welcome!  Fetching your information.... "
+        window.location.replace('/auth/facebook/callback')
+      else
+        console.log("User cancelled login or did not fully authorize.")
+    , scope: "email"
 
   $('#sign_out').click (e) ->
     FB.getLoginStatus (response) ->
