@@ -11,7 +11,6 @@ jQuery ->
     fjs.parentNode.insertBefore js, fjs
   ) document, "script", "facebook-jssdk"
 
-
 window.fbAsyncInit = ->
   FB.init(appId: gon.global.FACEBOOK_APP_ID, cookie: true)
 

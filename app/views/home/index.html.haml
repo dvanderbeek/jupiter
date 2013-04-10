@@ -1,8 +1,22 @@
+:javascript
+  function sendRequestViaMultiFriendSelector() {
+    FB.ui({
+      method: 'apprequests',
+      message: "Hi!  I want to schedule activities with you on Jupiter.  Sign up and let's plan to get together soon!"
+    }, requestCallback);
+  }
+  
+  function requestCallback(response) {
+    alert("Hello");
+  }
+  
 %h1 Jupiter
+- if current_user
+  %input{:onclick => "sendRequestViaMultiFriendSelector(); return false;", :type => "button", :value => "Send Request to Many Users with MFS", class: "btn btn-primary"}/
 - if @friends
-	%ul#friends
-		- @friends.each do |friend|
-			%li.friend{id: "fb-"+friend['id']}
-				.facebook-picture-square
-					= image_tag friend['picture']['data']['url']
-				= friend["name"]
+  %ul#friends
+    - @friends.each do |friend|
+      %li.friend{id: "fb-"+friend['id']}
+        .facebook-picture-square
+          = image_tag friend['picture']['data']['url']
+        = friend["name"]
