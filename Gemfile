@@ -9,6 +9,7 @@ gem 'sqlite3', group: :development
 gem 'pg', group: :production
 gem 'haml'
 gem 'omniauth-facebook', '1.4.0'
+gem 'koala'
 gem 'figaro'
 gem 'meta_request'
 

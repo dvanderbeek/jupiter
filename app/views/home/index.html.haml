@@ -1,1 +1,8 @@
 %h1 Jupiter
+- if @friends
+	%ul#friends
+		- @friends.each do |friend|
+			%li.friend{id: "fb-"+friend['id']}
+				.facebook-picture-square
+					= image_tag friend['picture']['data']['url']
+				= friend["name"]
