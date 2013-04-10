@@ -8,8 +8,7 @@ gem 'rails', '3.2.11'
 gem 'sqlite3', group: :development
 gem 'pg', group: :production
 gem 'haml'
-# gem 'omniauth-facebook', '1.4.0
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '1.4.0'
 gem 'figaro'
 gem 'meta_request'
 

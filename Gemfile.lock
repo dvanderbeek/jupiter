@@ -148,7 +148,7 @@ DEPENDENCIES
   haml
   jquery-rails
   meta_request
-  omniauth-facebook
+  omniauth-facebook (= 1.4.0)
   pg
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)
