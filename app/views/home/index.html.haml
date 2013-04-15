@@ -1,22 +1,24 @@
-:javascript
-  function sendRequestViaMultiFriendSelector() {
-    FB.ui({
-      method: 'apprequests',
-      message: "Hi!  I want to schedule activities with you on Jupiter.  Sign up and let's plan to get together soon!"
-    }, requestCallback);
-  }
-  
-  function requestCallback(response) {
-    alert("Hello");
-  }
-  
 %h1 Jupiter
+
 - if current_user
-  %input{:onclick => "sendRequestViaMultiFriendSelector(); return false;", :type => "button", :value => "Send Request to Many Users with MFS", class: "btn btn-primary"}/
-- if @friends
-  %ul#friends
-    - @friends.each do |friend|
-      %li.friend{id: "fb-"+friend['id']}
-        .facebook-picture-square
-          = image_tag friend['picture']['data']['url']
-        = friend["name"]
+  .row
+    .span6
+      %h4 Your calendars
+      %ul
+      - @calendar_list.data.items.each do |calendar|
+        %label.checkbox
+          = check_box_tag "select"
+          = calendar.summary
+    .span6
+      %h4 Your contacts
+      / Include these scripts to import address books with CloudSponge
+      %script{:src => "https://api.cloudsponge.com/address_books.js", :type => "text/javascript"}
+      %script{:charset => "utf-8", :type => "text/javascript"}
+        var csPageOptions = {
+        domain_key:"UVA3CU4MNENH5X5JKB8Z",
+        textarea_id:"contact_list"
+        };
+      / Any link with a class="cs_import" will start the import process
+      %a.cs_import Add from Address Book
+      / This textarea will be populated with the contacts returned by CloudSponge
+      %textarea#contact_list{:style => "width:450px;height:82px"}

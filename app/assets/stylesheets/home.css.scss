@@ -1,9 +1,16 @@
 #friends {
-	margin: 0;
+	margin: 10px 0 0 0;
 	list-style: none;
 	.friend {
 		list-style: none;
-		margin: 10px 0;
+		padding: 10px;
+		margin: 0 10px 0 0;
+		cursor: pointer;
+		width: 280px;
+		float: left;
+		&:hover {
+			background: #f1f1f1;
+		}
 		.facebook-picture-square {
 			display: inline-block;
 			width: 50px;

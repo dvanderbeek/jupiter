@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/zquestz/omniauth-google-oauth2.git
+  revision: 8ddce9158e5363739838f6f44afb338dfb888149
+  specs:
+    omniauth-google-oauth2 (0.1.14)
+      omniauth (~> 1.0)
+      omniauth-oauth2
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -30,6 +38,10 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.3)
     arel (3.0.2)
+    autoparse (0.3.3)
+      addressable (>= 2.3.1)
+      extlib (>= 0.9.15)
+      multi_json (>= 1.0.0)
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
     builder (3.0.4)
@@ -43,6 +55,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    extlib (0.9.16)
     faraday (0.8.7)
       multipart-post (~> 1.1)
     figaro (0.6.3)
@@ -54,10 +67,23 @@ GEM
     gon (4.0.2)
       actionpack (>= 2.3.0)
       json
+    google-api-client (0.6.3)
+      addressable (>= 2.3.2)
+      autoparse (>= 0.3.3)
+      extlib (>= 0.9.15)
+      faraday (~> 0.8.4)
+      jwt (>= 0.1.5)
+      launchy (>= 2.1.1)
+      multi_json (>= 1.0.0)
+      signet (>= 0.4.4)
+      uuidtools (>= 2.1.0)
     haml (4.0.2)
       tilt
     hashie (2.0.3)
     hike (1.2.2)
+    httparty (0.11.0)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
     httpauth (0.2.0)
     i18n (0.6.4)
     journey (1.0.4)
@@ -71,6 +97,8 @@ GEM
       addressable (~> 2.2)
       faraday (~> 0.8)
       multi_json (~> 1.3)
+    launchy (2.2.0)
+      addressable (~> 2.3)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -80,6 +108,7 @@ GEM
       railties
     mime-types (1.22)
     multi_json (1.7.2)
+    multi_xml (0.5.3)
     multipart-post (1.2.0)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -129,6 +158,11 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    signet (0.4.5)
+      addressable (>= 2.2.3)
+      faraday (~> 0.8.1)
+      jwt (>= 0.1.5)
+      multi_json (>= 1.0.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -144,6 +178,7 @@ GEM
     uglifier (2.0.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    uuidtools (2.1.3)
 
 PLATFORMS
   ruby
@@ -154,11 +189,14 @@ DEPENDENCIES
   figaro
   font-awesome-sass-rails
   gon
+  google-api-client
   haml
+  httparty
   jquery-rails
   koala
   meta_request
   omniauth-facebook (= 1.4.0)
+  omniauth-google-oauth2!
   pg
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)

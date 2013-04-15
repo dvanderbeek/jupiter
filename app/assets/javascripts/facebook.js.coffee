@@ -11,6 +11,33 @@ jQuery ->
     fjs.parentNode.insertBefore js, fjs
   ) document, "script", "facebook-jssdk"
 
+  $('#mfs-button').click ->
+    event.preventDefault()
+    sendRequestViaMultiFriendSelector()
+
+  $('li.friend').click ->
+    event.preventDefault()
+    id = $(this).data('friendid')
+    sendMessageToFriend(id)
+
+  $('#Search').fastLiveFilter('#friends');
+
+sendMessageToFriend = (id) ->
+  FB.ui
+    method: "send"
+    link: "http://jupiterapp.herokuapp.com"
+    to: id
+  , requestCallback
+
+sendRequestViaMultiFriendSelector = ->
+  FB.ui
+    method: "apprequests"
+    message: "Hi!  I want to schedule activities with you on Jupiter.  Sign up and let's plan to get together soon!"
+  , requestCallback
+
+requestCallback = (response) ->
+  alert "Facebook response"
+
 window.fbAsyncInit = ->
   FB.init(appId: gon.global.FACEBOOK_APP_ID, cookie: true)
 

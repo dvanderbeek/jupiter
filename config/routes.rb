@@ -4,6 +4,8 @@ Jupiter::Application.routes.draw do
   match '/auth/failure' => redirect('/')
   match '/signout' => 'sessions#destroy', as: 'signout'
 
+  match "/contacts/:importer/callback" => "home#index"
+
   root to: "home#index"
 
 
