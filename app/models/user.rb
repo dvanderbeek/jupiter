@@ -3,6 +3,12 @@ class User < ActiveRecord::Base
 
   has_many :contacts
 
+  def google_client
+    @google_client ||= Google::APIClient.new(:application_name => "Jupiter")
+    @google_client.authorization.access_token = self.oauth_token
+    return @google_client
+  end
+  
   def self.from_omniauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
 	  	if user.oauth_token.blank?

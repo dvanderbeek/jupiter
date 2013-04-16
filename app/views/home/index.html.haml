@@ -1,21 +1,36 @@
-%h1 Jupiter
-
 - if current_user
-  .row
-    .span6
-      %h4 Your calendars
-      %ul
-      - @calendar_list.data.items.each do |calendar|
-        %label.checkbox
-          = check_box_tag "select"
-          = calendar.summary
-    .span6
-      %h4 Invite Friends
-      %ul
-      - if current_user.contacts.length > 0
-        = "#{current_user.contacts.length} Contacts"
-        = link_to 'Update', 'contacts/gmail'
-        %br
-        %input.span6{"data-items" => "4", "data-provide" => "typeahead", "data-source" => "#{current_user.contacts.map(&:email)}", :style => "margin: 0 auto;", :type => "text"}/
-      - else
-        = link_to 'Get your contacts', 'contacts/gmail'
+  %h1.page-title 
+    .container
+      Dashboard
+
+.container
+  - if current_user
+    / %ul
+    /   - @events.data.items.each do |event|
+    /     %li
+    /       = event.summary
+    /       = event.start['date']
+    /       = event.start['dateTime']
+    /       = " to "
+    /       = event.end['date']
+    /       = event.end['dateTime']
+    .row
+      .span4
+        %h4 Your calendars
+        %ul
+        - @calendar_list.data.items.each do |calendar|
+          %label.checkbox
+            = check_box_tag "select"
+            = calendar.summary
+      .span4
+        %h4 Activities
+      .span4
+        %h4 Invite Friends
+        %ul
+        - if current_user.contacts.length > 0
+          = "#{current_user.contacts.length} Contacts"
+          = link_to 'Update', 'contacts/gmail'
+          %br
+          %input.span4{"data-items" => "4", "data-provide" => "typeahead", "data-source" => "#{current_user.contacts.map(&:email)}", :style => "margin: 0 auto;", :type => "text"}/
+        - else
+          = link_to 'Get your contacts', 'contacts/gmail'

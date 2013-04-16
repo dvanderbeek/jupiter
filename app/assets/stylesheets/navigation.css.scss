@@ -1,0 +1,22 @@
+#user_nav {
+	background: #1c2235;
+	padding: 20px 0;
+	color: #fff;
+	.logo a {
+		color: #fff;
+		text-decoration: none;
+		font-size: 26px;
+		text-transform: uppercase;
+		&:hover {
+			color: #ddd;
+		}
+	}
+}
+
+.page-title {
+	background: #018FD5;
+	padding: 40px 0;
+	color: #fff;
+	margin: 0;
+	font-weight: 100;
+}

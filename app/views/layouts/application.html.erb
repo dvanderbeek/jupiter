@@ -8,17 +8,8 @@
 </head>
 <body>
 	<%= include_gon %>
-	<div class="container">
-		<div id="user_nav">
-		  <% if current_user %>
-		    Signed in as <strong><%= current_user.name %></strong>!
-		    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-		  <% else %>
-		    <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
-		  <% end %>
-		</div>
-		
-		<%= yield %>
+		<%= render 'layouts/navigation' %>
+		<%= yield %>			
 	</div>
 </body>
 </html>
