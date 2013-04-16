@@ -14,6 +14,8 @@ gem 'google-api-client', :require => 'google/api_client'
 gem 'omniauth-google-oauth2', :git => 'https://github.com/zquestz/omniauth-google-oauth2.git'
 gem 'httparty'
 
+gem 'omnicontacts'
+
 gem 'koala'
 gem 'figaro'
 gem 'gon'

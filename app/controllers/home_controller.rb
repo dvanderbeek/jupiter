@@ -11,11 +11,6 @@ class HomeController < ApplicationController
 		      :api_method => calendar.calendar_list.list,
 		      :parameters => {},
 		      :headers => {'Content-Type' => 'application/json'})
-
-		    client2 = Google::APIClient.new
-		    client2.authorization.access_token = @token
-		    # contacts = client.discovered_api('contacts', 'v3')
-		    
 	  	end
 	  rescue
 	  	session[:user_id] = nil

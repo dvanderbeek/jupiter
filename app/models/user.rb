@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :oauth_expires_at, :oauth_token, :refresh_token, :provider, :uid
+  attr_accessible :name, :oauth_expires_at, :oauth_token, :refresh_token, :provider, :uid, :contacts
+
+  serialize :contacts
 
   def self.from_omniauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
