@@ -10,14 +10,12 @@
           = check_box_tag "select"
           = calendar.summary
     .span6
-      %h4 Your contacts
-      = "#{current_user.contacts.length} Contacts Found" if current_user.contacts
+      %h4 Invite Friends
       %ul
-      = link_to 'Get your contacts', 'contacts/gmail'
-      - if current_user.contacts
-        - current_user.contacts.each do |contact|
-          %li
-            - if contact[:name].present?
-              = "<#{contact[:name]}> #{contact[:email]}"
-            - else
-              = contact[:email]
+      - if current_user.contacts.length > 0
+        = "#{current_user.contacts.length} Contacts"
+        = link_to 'Update', 'contacts/gmail'
+        %br
+        %input.span6{"data-items" => "4", "data-provide" => "typeahead", "data-source" => "#{current_user.contacts.map(&:email)}", :style => "margin: 0 auto;", :type => "text"}/
+      - else
+        = link_to 'Get your contacts', 'contacts/gmail'
