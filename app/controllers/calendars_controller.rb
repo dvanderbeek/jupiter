@@ -9,4 +9,15 @@ class CalendarsController < ApplicationController
 		end
 		redirect_to root_url
 	end
+
+	def update_activities
+		current_user.activities.destroy_all
+		params[:activities].each do |activity|
+			join = UserActivity.new
+			join.user_id = current_user.id
+			join.activity_id = activity
+			join.save
+		end
+		redirect_to root_url
+	end
 end

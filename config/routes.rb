@@ -7,6 +7,8 @@ Jupiter::Application.routes.draw do
   match "/contacts/:importer/callback" => "contacts#add_contacts"
   match "/update_calendars" => "calendars#update_calendars"
 
+  resources :users, only: :update
+
   root to: "home#index"
 
 

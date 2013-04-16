@@ -16,7 +16,7 @@
     /       = event.end['dateTime']
     .row
       .span4
-        %h4 Your calendars
+        %h4 Connect Your Calendars
         .well.well-small
           Which calendars should we use to determine your availability?
         %ul
@@ -28,15 +28,17 @@
               = calendar.summary
           = submit_tag "Save", class: "btn btn-primary"
       .span4
-        %h4 Activities
+        %h4 Select Activities
         .well.well-small
           What activities would you like to schedule with your friends?
         %ul
-        - %w[Golf Playdates].each do |activity|
-          %label.checkbox
-            = check_box_tag "select"
-            = activity
-        = submit_tag "Save", class: "btn btn-primary"
+        = form_for current_user do |f|
+          = hidden_field_tag 'user[activity_ids][]', nil
+          - @activities.each do |activity|
+            %label.checkbox
+              = check_box_tag "user[activity_ids][]", activity.id, current_user.activity_ids.include?(activity.id), id: dom_id(activity)
+              = activity.name
+          = submit_tag "Save", class: "btn btn-primary"
       .span4
         %h4 Invite Friends
         .well.well-small
@@ -48,6 +50,6 @@
           %br
           %input.span4{"data-items" => "4", "data-provide" => "typeahead", "data-source" => "#{current_user.contacts.map(&:email)}", :style => "margin: 0 auto;", :type => "text"}/
         - else
-          = link_to 'Get your contacts', 'contacts/gmail'
+          = link_to 'Get your Gmail contacts', 'contacts/gmail'
         = text_area_tag :message, "Hello friend!  Join Jupiter now!", class: "span4"
         = submit_tag "Send Invites", class: "btn btn-primary"

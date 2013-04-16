@@ -14,6 +14,8 @@ class HomeController < ApplicationController
 	    	parameters: {'calendarId' => 'primary', 'max_results' => '10000', 'time_max' => Time.zone.now},
 	    	headers: {'Content-Type' => 'application/json'}
 	    )
+
+	    @activities = Activity.all
   	end
   end
 end
