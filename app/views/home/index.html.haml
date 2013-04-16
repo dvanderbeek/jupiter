@@ -17,15 +17,30 @@
     .row
       .span4
         %h4 Your calendars
+        .well.well-small
+          Which calendars should we use to determine your availability?
         %ul
-        - @calendar_list.data.items.each do |calendar|
-          %label.checkbox
-            = check_box_tag "select"
-            = calendar.summary
+        = form_tag '/update_calendars' do |f|
+          = hidden_field_tag "calendars[]", nil
+          - @calendar_list.data.items.each do |calendar|
+            %label.checkbox
+              = check_box_tag "calendars[]", calendar.id, current_user.calendars.where(calendar_id: calendar.id).length > 0
+              = calendar.summary
+          = submit_tag "Save", class: "btn btn-primary"
       .span4
         %h4 Activities
+        .well.well-small
+          What activities would you like to schedule with your friends?
+        %ul
+        - %w[Golf Playdates].each do |activity|
+          %label.checkbox
+            = check_box_tag "select"
+            = activity
+        = submit_tag "Save", class: "btn btn-primary"
       .span4
         %h4 Invite Friends
+        .well.well-small
+          Invite your friends to start planning activities together.
         %ul
         - if current_user.contacts.length > 0
           = "#{current_user.contacts.length} Contacts"
@@ -34,3 +49,5 @@
           %input.span4{"data-items" => "4", "data-provide" => "typeahead", "data-source" => "#{current_user.contacts.map(&:email)}", :style => "margin: 0 auto;", :type => "text"}/
         - else
           = link_to 'Get your contacts', 'contacts/gmail'
+        = text_area_tag :message, "Hello friend!  Join Jupiter now!", class: "span4"
+        = submit_tag "Send Invites", class: "btn btn-primary"

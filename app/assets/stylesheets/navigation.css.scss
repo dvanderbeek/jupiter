@@ -11,6 +11,16 @@
 			color: #ddd;
 		}
 	}
+	.google_sign_in {
+		background: #454E5D;
+		padding: 10px 20px;
+		@include border-radius(3px);
+		color: #fff;
+		text-decoration: none;
+		&:hover {
+			background: #018FD5;
+		}
+	}
 }
 
 .page-title {

@@ -5,6 +5,7 @@ Jupiter::Application.routes.draw do
   match '/signout' => 'sessions#destroy', as: 'signout'
 
   match "/contacts/:importer/callback" => "contacts#add_contacts"
+  match "/update_calendars" => "calendars#update_calendars"
 
   root to: "home#index"
 
