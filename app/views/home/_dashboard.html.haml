@@ -27,11 +27,16 @@
     %h4 Invite Friends
     .well.well-small
       Invite your friends to start planning activities together.
+    
+    
+    = image_tag 'gmail.png', class: 'pull-left', style: 'margin-right: 5px;'
     - unless current_user.contacts.nil?
-      = "#{current_user.contacts.length} Contacts Imported"
-      = link_to 'Refresh', 'contacts/gmail'
+      %span{style: "padding-bottom: 10px; line-height: 15px; float: left;"}
+        = "#{current_user.contacts.length} Contacts Imported"
+        = link_to 'Refresh', 'contacts/gmail'
     - else
-      = link_to 'Get your Gmail contacts', 'contacts/gmail', class: "btn btn-small", style: "margin-bottom: 10px;"
+      %span{style: "padding-bottom: 10px; line-height: 15px; float: left;"}
+        = link_to 'Import Gmail contacts', 'contacts/gmail', class: "btn btn-small", style: "margin-bottom: 10px;"
     %br
     = simple_form_for @invitation do |f|
       = f.input :recipient_email, label: false, placeholder: "Friend's email", input_html: {class: 'span4', autocomplete: "off", data: {provide: 'typeahead', source: @contacts}}
