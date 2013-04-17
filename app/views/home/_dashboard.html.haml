@@ -46,9 +46,9 @@
               = invitation.recipient_email
             %td
               - if User.find_by_email(invitation.recipient_email)
-                %span.label.label-info.pull-right Pending
-              - else
                 %span.label.label-success.pull-right Signed Up!
+              - else
+                %span.label.label-info.pull-right Pending
     - else
       .well
         You have not sent any invitations yet!
