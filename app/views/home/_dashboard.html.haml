@@ -38,10 +38,14 @@
       = f.submit "Send Invitation", class: "btn btn-primary"
 
     %h5 Your Sent Invitations
-    %table.table
-      - current_user.sent_invitations.order("sent_at DESC").each do |invitation|
-        %tr
-          %td
-            = invitation.recipient_email
-          %td
-            %span.label.label-info.pull-right Pending
+    - if @sent_invitations.length > 0
+      %table.table
+        - @sent_invitations.each do |invitation|
+          %tr
+            %td
+              = invitation.recipient_email
+            %td
+              %span.label.label-info.pull-right Pending
+    - else
+      .well
+        %p You have not sent any invitations yet!
