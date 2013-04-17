@@ -16,6 +16,11 @@ class HomeController < ApplicationController
 	    )
 
 	    @activities = Activity.all
+
+	    @contacts = []
+	    current_user.contacts.each do |contact|
+	    	@contacts.push contact[:email]
+	    end
   	end
   end
 end

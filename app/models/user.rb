@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :oauth_expires_at, :oauth_token, :refresh_token, :provider, :uid, :activity_ids
-
-  has_many :contacts
+  attr_accessible :name, :oauth_expires_at, :oauth_token, :refresh_token, :provider, :uid, :activity_ids, :contacts
+  
   has_many :calendars
   has_many :activities_users
   has_many :activities, through: :activities_users
+
+  serialize :contacts
 
   def google_client
     @google_client ||= Google::APIClient.new(:application_name => "Jupiter")
@@ -24,5 +25,5 @@ class User < ActiveRecord::Base
 	    user.save!
 	  end
 	end
-	
+
 end

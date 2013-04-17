@@ -28,11 +28,11 @@
     .well.well-small
       Invite your friends to start planning activities together.
     %ul
-    - if current_user.contacts.length > 0
+    - unless current_user.contacts.nil?
       = "#{current_user.contacts.length} Contacts"
       = link_to 'Update', 'contacts/gmail'
       %br
-      %input.span4{"data-items" => "4", "data-provide" => "typeahead", "data-source" => "#{current_user.contacts.map(&:email)}", :style => "margin: 0 auto;", :type => "text"}/
+      %input.span4{"data-items" => "4", "data-provide" => "typeahead", "data-source" => "#{@contacts}", :style => "margin: 0 auto;", :type => "text"}/
     - else
       = link_to 'Get your Gmail contacts', 'contacts/gmail'
     = text_area_tag :message, "Hello friend!  Join Jupiter now!", class: "span4"
