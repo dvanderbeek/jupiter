@@ -1,5 +1,9 @@
 class HomeController < ApplicationController
   def index
+  	if params[:invitation_token]
+  		@invite = Invitation.find_by_token(params[:invitation_token])
+  	end
+  	
     if current_user
 	    #Use the token from the data to request a list of calendars
 	    # current_user.google_client.authorization.access_token = current_user.oauth_token
@@ -16,6 +20,8 @@ class HomeController < ApplicationController
 	    )
 
 	    @activities = Activity.all
+
+	    @invitation = Invitation.new
 
 	    @contacts = []
 	    unless current_user.contacts.nil?

@@ -1,5 +1,7 @@
 Jupiter::Application.routes.draw do
 
+  resources :invitations
+
   match '/auth/:provider/callback' => 'sessions#create'
   match '/auth/failure' => redirect('/')
   match '/signout' => 'sessions#destroy', as: 'signout'
@@ -11,6 +13,7 @@ Jupiter::Application.routes.draw do
 
   root to: "home#index"
 
+  match '/:invitation_token' => 'home#index', as: 'signup'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

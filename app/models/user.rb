@@ -1,11 +1,21 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :oauth_expires_at, :oauth_token, :refresh_token, :provider, :uid, :activity_ids, :contacts
-  
+  attr_accessible :name, :oauth_expires_at, :oauth_token, :refresh_token, :provider, :uid, :activity_ids, :contacts, :invitation_token
+
   has_many :calendars
   has_many :activities_users
   has_many :activities, through: :activities_users
+  has_many :sent_invitations, :class_name => 'Invitation', :foreign_key => 'sender_id'
+	belongs_to :invitation
 
   serialize :contacts
+
+  def invitation_token
+	  invitation.token if invitation
+	end
+
+	def invitation_token=(token)
+	  self.invitation = Invitation.find_by_token(token)
+	end
 
   def google_client
     @google_client ||= Google::APIClient.new(:application_name => "Jupiter")

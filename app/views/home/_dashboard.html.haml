@@ -27,13 +27,21 @@
     %h4 Invite Friends
     .well.well-small
       Invite your friends to start planning activities together.
-    %ul
     - unless current_user.contacts.nil?
-      = "#{current_user.contacts.length} Contacts"
-      = link_to 'Update', 'contacts/gmail'
-      %br
-      %input.span4{"data-items" => "4", "data-provide" => "typeahead", "data-source" => "#{@contacts}", :style => "margin: 0 auto;", :type => "text"}/
+      = "#{current_user.contacts.length} Contacts Imported"
+      = link_to 'Refresh', 'contacts/gmail'
     - else
-      = link_to 'Get your Gmail contacts', 'contacts/gmail'
-    = text_area_tag :message, "Hello friend!  Join Jupiter now!", class: "span4"
-    = submit_tag "Send Invites", class: "btn btn-primary"
+      = link_to 'Get your Gmail contacts', 'contacts/gmail', class: "btn btn-small", style: "margin-bottom: 10px;"
+    %br
+    = simple_form_for @invitation do |f|
+      = f.input :recipient_email, label: false, placeholder: "Friend's email"
+      = f.submit "Send Invitation", class: "btn btn-primary"
+
+    %h5 Your Sent Invitations
+    %table.table
+      - current_user.sent_invitations.order("sent_at DESC").each do |invitation|
+        %tr
+          %td
+            = invitation.recipient_email
+          %td
+            %span.label.label-info.pull-right Pending
