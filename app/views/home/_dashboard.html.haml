@@ -24,13 +24,14 @@
           = activity.name
       = submit_tag "Save", class: "btn btn-primary"
   .span4
-    .well.well-small
-      %h4{style: 'margin-top: 0;'} Invite Friends
-      Invite your friends to start planning activities together.
+    / .well.well-small
+    /   %h4{style: 'margin-top: 0;'} Invite Friends
+    /   Invite your friends to start planning activities together.
     
     %div.invite-panel
       .title
-        Invite a Friend!
+        %h4 Invite Friends
+        %p{style: "margin: 0;"} Invite your friends to start planning activities together.
       = image_tag 'gmail.png', class: 'pull-left', style: 'margin-right: 5px;'
       - unless current_user.contacts.nil?
         %span{style: "padding-bottom: 10px; line-height: 15px; float: left;"}
