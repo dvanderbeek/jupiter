@@ -33,18 +33,17 @@
 		}
 	}
 }
-
-.invite-panel {
-	.title {
-		background: #f1f1f1;
-		margin: -9px -9px 10px -9px;
-		padding: 9px;
-		border-bottom: 1px solid #e3e3e3;
-		h4 { margin-top: 0; }
+.well.well-small {
+	h4 {
+		margin-top: 0;
 	}
-	border: 1px solid #f1f1f1;
-	padding: 9px;
+}
+.invite-panel {
 	margin-bottom: 15px;
 	@include border-radius(3px);
 	@include box-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
+	.well {
+		margin: 0px;
+		@include border-radius(3px 3px 0 0);
+	}
 }
