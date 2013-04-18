@@ -19,7 +19,12 @@ gem 'omnicontacts'
 gem 'koala'
 gem 'figaro'
 gem 'gon'
-gem 'meta_request'
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'letter_opener'
+end
 
 gem 'simple_form'
 # Gems used only for assets and not required

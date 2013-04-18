@@ -15,6 +15,7 @@ Jupiter::Application.routes.draw do
 
   match '/:invitation_token' => 'home#index', as: 'signup'
 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

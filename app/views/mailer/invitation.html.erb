@@ -1,3 +1,681 @@
-You are invited to join our beta!
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+<title>Crop - Responsive E-mail Template</title>
 
-<%= @signup_url %>
+<!-- Hotmail ignores some valid styling, so we have to add this -->
+<style type="text/css">
+
+div, p, a, li, td { -webkit-text-size-adjust:none; }
+
+.ReadMsgBody {width: 100%; background-color: #fafafa;}
+.ExternalClass {width: 100%; background-color: #fafafa;}
+
+body {width: 100%; background-color: #fafafa; margin:0; padding:0; -webkit-font-smoothing: antialiased;}
+html {width: 100%; }
+
+.image1MC img {width: 263px!important; height: auto!important; border-radius: 4px!important;}
+
+.main-logo {
+	color: #333;
+	font-family: 'Arial';
+	font-size: 18px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.signup-button {
+	background: #E04F1A;
+	color: #fff;
+	font-size: 15px;
+	padding: 15px 25px;
+	border-radius: 3px;
+	text-decoration: none;
+}
+
+@media only screen and (max-width: 640px) 
+		   {
+		body							{width:auto!important;}
+		table table               		{width:440px!important; }
+		.fullWidth						{width: 100%!important;}
+		.mobileCenter					{width: 440px !important; text-align: center!important; }
+		.eraseForMobile					{width:0; display:none !important;}
+		.navPad							{margin-right: 35px!important; margin-left: 35px; }
+		.crop1							{width: 100%!important; text-align: center!important; font-size: 28px!important;}
+		.crop2							{width: 100%!important; text-align: center!important;}
+		.crop3							{width: 100%!important; font-size: 17px!important;}
+		.crop4							{width: 100%!important; font-size: 17px!important; padding-top: 0px;}
+		.headerLogo						{text-align: center!important; padding-top: 30px!important; padding-bottom: 30px!important;}
+		.pad1							{height: 20px!important;}
+		.pad2							{height: 10px!important;}
+		.pad3							{height: 0px!important;}
+		.line1							{width: 367px!important;}
+		.roundIcons						{width: 75px!important; height: 75px!important; border-radius: 50px!important;}
+		.scalePad						{width: 107px!important;}
+		.scalePad2						{width: 182px!important;}
+		.scalePad3						{width: 36px!important; }
+		.width1							{width: 1px!important;}
+		.BG								{background-color: #fafafa!important; width: 100%!important;}
+		.text1							{width: 240px!important;}
+		.image1							{width: 200px!important; border-radius: 4px!important;}
+		.image1MC						{width: 200px!important; border-radius: 4px!important;}
+		.image1MC img					{width: 200px!important; border-radius: 4px!important;}
+		.textForMobile					{width: 200px!important;}
+		.imageScale1					{width: 200px!important; height: auto!important;}
+		.imageScale2					{width: 200px!important; height: auto!important; padding: 0px!important;}
+		.footerScale					{width: 146px!important;}
+		.tableSponsors					{width: 440px; }
+		.footerScaleRight				{width: 70%!important; }
+		.FooterIconsScale1				{width: 8%!important; text-align: left!important; padding-right: 15px;}
+		}
+		
+@media only screen and (max-width: 479px) 
+		   {
+		body							{width:auto!important;}
+		table table 					{width: 280px!important; }
+		.fullWidth						{width: 100%!important;}
+		.mobileCenter					{width:280px !important; text-align: center!important; }
+		.eraseForMobile					{width:0; display:none !important;}
+		.navPad							{margin-right: 9px!important; margin-left: 9px; font-size: 12px!important; }
+		.threeFeatures					{width: 280px!important; text-align: center!important; font-size: 26px!important; line-height: 32px!important;}
+		.crop1							{width: 280px!important; text-align: center!important; font-size: 26px!important; }
+		.crop2							{width: 100%!important; text-align: center!important;}
+		.crop3							{width: 100%!important; font-size: 16px!important; line-height: 26px!important;}
+		.crop4							{width: 100%!important; font-size: 16px!important; padding-top: 8px; }
+		.pad1							{height: 20px!important;}
+		.pad2							{height: 10px!important;}
+		.pad3							{height: 50px!important;}
+		.line1							{width: 209px!important;}
+		.roundIcons						{width: 75px!important; height: 75px!important; border-radius: 50px!important;}
+		.scalePad						{width: 28px!important;}
+		.scalePad2						{width: 102px!important;}
+		.scalePad3						{width: 35px!important; background-color: ;}
+		.width1							{width: 1px!important;}
+		.BG								{background-color: #fafafa!important; width: 100%!important;}
+		.image1							{width: 280px!important; height: auto!important; border-radius: 4px!important;}
+		.image1MC						{width: 280px!important; height: auto!important; border-radius: 4px!important;}
+		.image1MC img					{width: 280px!important; height: auto!important; border-radius: 4px!important;}
+		.textForMobile					{width: 280px!important;}
+		.imageScale1					{width: 280px!important; height: auto!important;}
+		.imageScale2					{width: 280px!important; height: auto!important;}
+		.footerScale					{width: 92px!important;}	
+		.tableSponsors					{width: 280px; padding-left: 0px; padding-right: 0px;}
+		.sponsorScale1					{width: 100%!important; text-align: center!important;}
+		.footerScaleRight				{width: 100%!important; text-align: left; padding-left: 0px; padding-top: 10px; }
+		.FooterIconsScale1				{width: 33%!important; text-align: left!important; padding-top: 30px; padding-bottom: 30px; padding-left: 0px; padding-right: 0px;}
+		.footerLogo						{padding: 0px!important; text-align: center!important;}
+		}
+
+		
+</style>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class=" hasGoogleVoiceExt">
+
+<!-- Wrapper -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+	<tbody><tr>
+		<td width="100%" valign="top" bgcolor="#fafafa">
+		
+			<!-- Nav Mobile Wrapper -->
+			<table width="580" border="0" cellpadding="0" cellspacing="0" align="center">
+				<tbody><tr>
+					<td width="100%" bgcolor="fafafa">
+					
+						<!-- Start Nav -->
+						<table width="580" border="0" cellpadding="0" cellspacing="0" align="center">
+							<tbody><tr>
+								<td width="580">
+									
+									<!-- Logo -->
+									<table border="0" cellpadding="0" cellspacing="0" align="left" class="mobileCenter">
+										<tbody><tr>
+											<td height="12"></td>
+										</tr>
+										<tr>
+											<td height="50">
+												<a class="main-logo" href="<%= @signup_url %>">Jupiter</a>
+											</td>
+										</tr>
+										<tr>
+											<td height="12" class="eraseForMobile"></td>
+										</tr>
+									</tbody></table>
+									
+									<!-- Nav -->
+									<table border="0" cellpadding="0" cellspacing="0" align="right">
+										<tbody><tr>
+											<td height="12" class="eraseForMobile"></td>
+										</tr>
+										<tr>
+											<td width="460" height="50" class="mobileCenter" style="font-size: 12px; color: #272727; font-weight: bold; text-align: right; font-family: Helvetica, Arial, sans-serif; line-height: 20px; vertical-align: middle;">
+												<a href="<%= @signup_url %>" class="navPad" style="text-decoration: none; color: #272727;">Sign Up</a>
+											</td>
+										</tr>
+										<tr>
+											<td height="12"></td>
+										</tr>
+									</tbody></table>
+																	
+								</td>
+							</tr>
+						</tbody></table><!-- End Nav -->
+						
+					</td>
+				</tr>
+			</tbody></table><!-- End Nav Mobile Wrapper -->
+			
+			<!-- Header -->
+			<table width="100%" class="fullWidth" border="0" cellpadding="0" cellspacing="0" align="center">
+				<tbody><tr>
+					<td width="100%" bgcolor="#2b2e3b" background="images/header_b.jpg" style="text-align: center; background-repeat: no-repeat; background-size: 100% 100%">
+					
+						<!-- Space -->
+						<table width="580" border="0" cellpadding="0" cellspacing="0" align="center">
+							<tbody><tr>
+								<td width="580" height="40" class="pad1">									
+								</td>
+							</tr>
+						</tbody></table>
+					
+						<!-- Header Split -->
+						<table width="580" border="0" cellpadding="0" cellspacing="0" align="center" class="mobileCenter">
+							<tbody><tr>
+								<td valign="middle">
+								
+									<!-- Header Logo -->
+									<table width="155" border="0" cellpadding="0" cellspacing="0" align="right">
+										<tbody><tr>
+											<td width="155" style="text-align: left;" class="headerLogo">
+												<!-- <a href="<%= @signup_url %>"><img src="images/logo_header.png" alt="" border="0"></a> -->									
+											</td>
+										</tr>
+									</tbody></table>
+									
+									<!-- Headline -->
+									<table border="0" cellpadding="0" cellspacing="0" align="left" class="crop1">
+										<tbody><tr>
+											<td width="345" style="font-size: 30px; color: #f1f1f1; text-align: left; font-weight: light; font-family: Helvetica, Arial, sans-serif; line-height: 38px; text-shadow: 1px 1px 2px #000;" class="crop1">
+												<%= @invitation.sender.name %> has invited you to Jupiter!
+											</td>
+										</tr>
+										<tr>
+											<td width="345" height="8"></td>
+										</tr>
+										<tr>
+											<td width="345" style="font-size: 14px; color: #cacaca; text-align: left; font-weight: light; font-family: Helvetica, Arial, sans-serif; line-height: 24px; text-shadow: 1px 1px 2px #000;" class="crop2">
+											The only tool you will ever need to plan activities with your friends.<br><br>
+											
+											<a class="signup-button" href="<%= @signup_url %>">Accept Invitation</a>
+																			
+											</td> 
+										</tr>
+									</tbody></table>
+									
+									<!-- Padding + (Outlook) -->
+									<table width="40" border="0" cellpadding="0" cellspacing="0" align="left" style="font-size: 0;line-height: 0;border-collapse: collapse;" class="eraseForMobile">
+									
+										<tbody><tr>
+											<td width="40" height="30" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+												<p style="padding-left: 80px;">
+													&nbsp;
+												</p>
+											</td>
+										</tr>
+									</tbody></table>
+								
+									
+									
+								</td>
+							</tr>
+						</tbody></table>
+						
+						<!-- Space -->
+						<table width="580" border="0" cellpadding="0" cellspacing="0" align="center">
+							<tbody><tr>
+								<td width="580" height="40">									
+								</td>
+							</tr>
+						</tbody></table>						
+						
+						
+					</td>
+				</tr>
+			</tbody></table><!-- End Header -->
+			
+			<!-- Mobile Wrapper -->
+			<table width="580" border="0" cellpadding="0" cellspacing="0" align="center">
+				<tbody><tr>
+					<td width="100%" bgcolor="fafafa">
+					
+						<!-- Start Headline + Text Top -->
+						<table width="580" border="0" cellpadding="0" cellspacing="0" align="center">
+							<tbody><tr>
+								<td width="580">
+									
+									<!-- Headline -->
+									<table border="0" cellpadding="0" cellspacing="0" align="center">
+										<tbody><tr>
+											<td height="20"></td>
+										</tr>
+										<tr>
+											<td height="50" style="font-size: 30px; color: #2b2e3b; text-align: center; font-weight: light; font-family: Helvetica, Arial, sans-serif; line-height: 38px;" class="threeFeatures">
+												<span style="color: #f17366; font-weight: bold; text-decoration: none;">Three</span> steps to get started.
+											</td>
+										</tr>
+										<tr>
+											<td height="15" class="pad2"></td>
+										</tr>
+									</tbody></table>
+									
+									<!-- Text -->
+									<table border="0" cellpadding="0" cellspacing="0" align="center">
+										<tbody><tr>
+											<td height="50" style="font-size: 21px; color: #505050; text-align: center; font-weight: 100; font-family: Helvetica, Arial, sans-serif; line-height: 30px;" class="crop3">
+												We believe in software that is easy to use. Start planning activities with your busy friends quickly.
+											</td>
+										</tr>
+										<tr>
+											<td height="40"></td>
+										</tr>
+									</tbody></table>
+									
+									
+																	
+								</td>
+							</tr>
+						</tbody></table><!-- End Headline + Text Top -->
+						
+					</td>
+				</tr>
+			</tbody></table><!-- End Mobile Wrapper -->
+			
+			<!-- Start 3 Round Images -->
+			<table width="580" border="0" cellpadding="0" cellspacing="0" align="center">
+				<tbody><tr>
+					<td width="580">
+					
+						<!-- Line -->
+						<table border="0" cellpadding="0" cellspacing="0" align="center" class="line1">
+							<tbody><tr>
+								<td width="507" height="1" bgcolor="#bdbdbd">									
+								</td>
+							</tr>
+						</tbody></table>
+						
+						<table border="0" cellpadding="0" cellspacing="0" align="center">
+							<tbody><tr>
+								<td width="36" height="30" class="scalePad3"></td>
+								<td width="1" height="30" bgcolor="#bdbdbd" class="width1"></td>
+								<td width="252" height="30" bgcolor="#fafafa" class="scalePad2"></td>
+								<td width="1" height="30" bgcolor="#bdbdbd" class="width1"></td>
+								<td width="252" height="30" bgcolor="#fafafa" class="scalePad2"></td>
+								<td width="1" height="30" bgcolor="#bdbdbd" class="width1"></td>
+								<td width="37" height="30" class="scalePad3"></td>
+							</tr>
+							<tr>
+								<td width="36" height="10" class="scalePad3"></td>
+								<td width="1" height="10" bgcolor="#fafafa" class="width1"></td>
+								<td width="252" height="10" bgcolor="#fafafa" class="scalePad2"></td>
+								<td width="1" height="10" bgcolor="#fafafa" class="width1"></td>
+								<td width="252" height="10" bgcolor="#fafafa" class="scalePad2"></td>
+								<td width="1" height="10" bgcolor="#fafafa" class="width1"></td>
+								<td width="37" height="10" class="scalePad3"></td>
+							</tr>
+						</tbody></table>
+						
+						<table width="580" border="0" cellpadding="0" cellspacing="0" align="center">
+							<tbody><tr>
+								<td width="75" height="75" bgcolor="#2b2e3b" style="text-align: center; border-radius: 100%;" class="roundIcons">
+									<center><a href="<%= @signup_url %>"><img src="images/icon_1.jpg" alt="" border="0" style="display: block;"></a></center>
+								</td>
+								<td width="175" bgcolor="#fafafa" class="scalePad"></td>
+								<td width="75" height="75" bgcolor="#2b2e3b" style="text-align: center; border-radius: 100%;">
+									<center><a href="<%= @signup_url %>"><img src="images/icon_2.jpg" alt="" border="0" style="display: block;"></a></center>
+								</td>
+								<td width="175" bgcolor="#fafafa" class="scalePad"></td>
+								<td width="75" height="75" bgcolor="#2b2e3b" style="text-align: center; border-radius: 100%;">
+									<center><a href="<%= @signup_url %>"><img src="images/icon_3.jpg" alt="" border="0" style="display: block;"></a></center>
+								</td>
+							</tr>
+						</tbody></table>
+															
+					</td>
+				</tr>
+			</tbody></table><!-- End Start 3 Round Images -->
+			
+			
+			<!-- Space -->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullWidth">
+				<tbody><tr>
+					<td width="100%" height="50" bgcolor="#fafafa"></td>
+				</tr>
+			</tbody></table>
+			
+			<!-- Image 2 Left -->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#fafafa">
+				<tbody><tr>
+					<td>									
+					
+						<!-- Mobile Wrapper -->
+						<table width="580" border="0" cellpadding="0" cellspacing="0" align="center">
+							<tbody><tr>
+								<td width="580" bgcolor="fafafa">
+								
+									<!-- Image 1 Width= 263px, Height= 149px!! -->
+									<table bgcolor="#fafafa" align="left" cellpadding="0" cellspacing="0" border="0" class="image1">
+										<tbody><tr>
+											<td valign="top">
+											
+												<table border="0" cellpadding="0" cellspacing="0" class="image1MC">
+													<tbody><tr>
+														<td width="263">
+														
+															<a href="<%= @signup_url %>"><img width="263" height="149" src="images/image_1.jpg" alt="" border="0" style="width: 263px; height: 149px; display: block; border-radius: 5px;" class="imageScale1"></a>
+														</td>
+													</tr>
+													<tr>
+														<td width="263" height="10"></td>
+													</tr>
+												</tbody></table>
+												
+												
+											</td>
+										</tr>
+									</tbody></table><!-- End Image 1 -->
+									
+									<!-- Padding + (Outlook) -->
+									<table class="eraseForMobile" width="8" border="0" cellpadding="0" cellspacing="0" align="left" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+										<tbody><tr>
+											<td width="8" height="20" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+												<p style="padding-left: 54px;">
+													&nbsp;
+												</p>
+											</td>
+										</tr>
+									</tbody></table>
+									
+									<!-- Text 1 Text -->
+									<table bgcolor="#fafafa" align="right" cellpadding="0" cellspacing="0" border="0" class="image1">
+										<tbody><tr>
+											<td valign="top">
+											
+											
+												<table border="0" cellpadding="0" cellspacing="0" class="textForMobile">
+													<tbody><tr>
+														<td width="263" style="font-size: 18px; color: #b8b9c1; text-align: left; font-weight: bold; font-family: Helvetica, Arial, sans-serif; line-height: 24px;" class="crop4">
+															<span style="text-decoration: none; color: #272727">Link Your Calendars.</span>	
+														</td>
+													</tr>
+													<tr>
+														<td width="263" height="4">	
+														</td>
+													</tr>
+													<tr>
+														<td width="263" style="font-size: 14px; color: #787878; text-align: left; font-weight: 100; font-family: Helvetica, Arial, sans-serif; line-height: 24px;">
+															Curabitur blandit  <span style="text-decoration: none; color: #f17366; font-weight: bold;">tempus porttitor</span>. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+															<br><br>
+														</td>
+													</tr>
+												</tbody></table>
+												
+												
+											</td>
+										</tr>
+									</tbody></table><!-- End Image 1 Text -->
+								
+								</td>
+							</tr>
+						</tbody></table><!-- End Mobile Wrapper -->
+						
+			
+					</td>
+				</tr>
+			</tbody></table><!-- End Image 1 Left -->
+
+			<!-- Space -->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullWidth">
+				<tbody><tr>
+					<td width="100%" height="50" bgcolor="#fafafa"></td>
+				</tr>
+			</tbody></table>
+			
+			<!-- Image 2 Left -->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#fafafa">
+				<tbody><tr>
+					<td>									
+					
+						<!-- Mobile Wrapper -->
+						<table width="580" border="0" cellpadding="0" cellspacing="0" align="center">
+							<tbody><tr>
+								<td width="580" bgcolor="fafafa">
+									
+									<!-- Image 2 Width= 263px, Height= 149px!! -->
+									<table bgcolor="#fafafa" align="left" cellpadding="0" cellspacing="0" border="0" class="image1">
+										<tbody><tr>
+											<td valign="top">
+											
+												<table border="0" cellpadding="0" cellspacing="0" class="image1MC">
+													<tbody><tr>
+														<td width="263">
+														
+															<a href="<%= @signup_url %>"><img width="263" height="149" src="images/image_2.jpg" alt="" border="0" style="width: 263px; height: 149px; display: block; border-radius: 5px;" class="imageScale1"></a>
+														</td>
+													</tr>
+													<tr>
+														<td width="263" height="10"></td>
+													</tr>
+												</tbody></table>
+												
+												
+											</td>
+										</tr>
+									</tbody></table><!-- End Image 2 -->
+									
+									<!-- Padding + (Outlook) -->
+									<table class="eraseForMobile" width="8" border="0" cellpadding="0" cellspacing="0" align="left" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+										<tbody><tr>
+											<td width="8" height="20" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+												<p style="padding-left: 54px;">
+													&nbsp;
+												</p>
+											</td>
+										</tr>
+									</tbody></table>
+									
+									<!-- Text 2 Text -->
+									<table bgcolor="#fafafa" align="right" cellpadding="0" cellspacing="0" border="0" class="image1">
+										<tbody><tr>
+											<td valign="top">
+											
+											
+												<table border="0" cellpadding="0" cellspacing="0" class="textForMobile">
+													<tbody><tr>
+														<td width="263" style="font-size: 18px; color: #b8b9c1; text-align: left; font-weight: bold; font-family: Helvetica, Arial, sans-serif; line-height: 24px;" class="crop4">
+															<span style="text-decoration: none; color: #272727">Choose Activities.</span>	
+														</td>
+													</tr>
+													<tr>
+														<td width="263" height="4">	
+														</td>
+													</tr>
+													<tr>
+														<td width="263" style="font-size: 14px; color: #787878; text-align: left; font-weight: 100; font-family: Helvetica, Arial, sans-serif; line-height: 24px;">
+															Curabitur blandit  <span style="text-decoration: none; color: #f17366; font-weight: bold;">tempus porttitor</span>. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+															<br><br>
+														</td>
+													</tr>
+												</tbody></table>
+												
+												
+											</td>
+										</tr>
+									</tbody></table><!-- End Image 3 Text -->
+								
+								</td>
+							</tr>
+						</tbody></table><!-- End Mobile Wrapper -->
+						
+			
+					</td>
+				</tr>
+			</tbody></table><!-- End Image 3 Left -->
+			
+			<!-- Space -->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullWidth">
+				<tbody><tr>
+					<td width="100%" height="50" bgcolor="#fafafa"></td>
+				</tr>
+			</tbody></table>
+			
+			<!-- Image 3 Left -->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#fafafa">
+				<tbody><tr>
+					<td>									
+					
+						<!-- Mobile Wrapper -->
+						<table width="580" border="0" cellpadding="0" cellspacing="0" align="center">
+							<tbody><tr>
+								<td width="580" bgcolor="fafafa">
+									
+									<!-- Image 3 Width= 263px, Height= 149px!! -->
+									<table bgcolor="#fafafa" align="left" cellpadding="0" cellspacing="0" border="0" class="image1">
+										<tbody><tr>
+											<td valign="top">
+											
+												<table border="0" cellpadding="0" cellspacing="0" class="image1MC">
+													<tbody><tr>
+														<td width="263">
+														
+															<a href="<%= @signup_url %>"><img width="263" height="149" src="images/image_3.jpg" alt="" border="0" style="width: 263px; height: 149px; display: block; border-radius: 5px;" class="imageScale1"></a>
+														</td>
+													</tr>
+													<tr>
+														<td width="263" height="10"></td>
+													</tr>
+												</tbody></table>
+												
+												
+											</td>
+										</tr>
+									</tbody></table><!-- End Image 3 -->
+									
+									<!-- Padding + (Outlook) -->
+									<table class="eraseForMobile" width="8" border="0" cellpadding="0" cellspacing="0" align="left" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+										<tbody><tr>
+											<td width="8" height="20" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+												<p style="padding-left: 54px;">
+													&nbsp;
+												</p>
+											</td>
+										</tr>
+									</tbody></table>
+									
+									<!-- Text 3 Text -->
+									<table bgcolor="#fafafa" align="right" cellpadding="0" cellspacing="0" border="0" class="image1">
+										<tbody><tr>
+											<td valign="top">
+											
+											
+												<table border="0" cellpadding="0" cellspacing="0" class="textForMobile">
+													<tbody><tr>
+														<td width="263" style="font-size: 18px; color: #b8b9c1; text-align: left; font-weight: bold; font-family: Helvetica, Arial, sans-serif; line-height: 24px;" class="crop4">
+															<span style="text-decoration: none; color: #272727">Invite Friends.</span>	
+														</td>
+													</tr>
+													<tr>
+														<td width="263" height="4">	
+														</td>
+													</tr>
+													<tr>
+														<td width="263" style="font-size: 14px; color: #787878; text-align: left; font-weight: 100; font-family: Helvetica, Arial, sans-serif; line-height: 24px;">
+															Curabitur blandit  <span style="text-decoration: none; color: #f17366; font-weight: bold;">tempus porttitor</span>. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+															<br><br>  
+														</td>
+													</tr>
+												</tbody></table>
+												
+												
+											</td>
+										</tr>
+									</tbody></table><!-- End Image 3 Text -->
+								
+								</td>
+							</tr>
+						</tbody></table><!-- End Mobile Wrapper -->
+						
+			
+					</td>
+				</tr>
+			</tbody></table><!-- End Image 3 Left -->
+			
+			<!-- Don't delete!! Padding (Outlook Fix) -->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" style="font-size: 0;line-height: 0;border-collapse: collapse;" class="fullWidth">
+				<tbody><tr>
+					<td bgcolor="#fafafa" width="100%" style="font-size: 0;line-height: 0;border-collapse: collapse;" class="eraseForMobile">
+						<p style="height: 30px;">
+							&nbsp;
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#fafafa" width="100%" height="10" style="font-size: 0;line-height: 0;border-collapse: collapse;" class="eraseForMobile">
+					
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#2b2e3d" width="100%" style="font-size: 0;line-height: 0;border-collapse: collapse;" class="fullWidth">
+						<p style="height: 30px;">
+							&nbsp;
+						</p>
+					</td>
+				</tr>
+				<tr> 
+					<td bgcolor="#2b2e3d" width="100%" height="10" style="font-size: 0;line-height: 0;border-collapse: collapse;" class="fullWidth">
+					</td>
+				</tr>
+			</tbody></table>
+			
+						
+			<!-- Start 4 Columns -->
+			<table width="100%" class="fullWidth" border="0" cellpadding="0" cellspacing="0" align="center">
+				
+				<tbody><tr>
+					<td width="100%" bgcolor="#2b2e3d">
+					
+						
+						
+						<!-- Mobile Wrapper -->
+						
+						<!-- End Mobile Wrapper -->
+						
+						<!-- Space -->
+						<table width="580" border="0" cellpadding="0" cellspacing="0" align="center" class="scaleForMobile">
+						
+						<tbody><tr>
+							<td height="20" style="font-size: 1px; color: #363636; line-height: 1px;">
+								&nbsp;-
+							</td>
+						</tr>
+						<tr>
+							<td bgcolor="#2b2e3d" width="100%" style="font-size: 0;line-height: 0;border-collapse: collapse;" class="fullWidth">
+								<p style="height: 20px;">
+									&nbsp;
+								</p>
+							</td>
+						</tr>
+						
+						</tbody></table>
+					</td>
+				</tr>
+			</tbody></table><!-- End 4 Columns -->
+				
+
+		</td>
+	</tr>
+</tbody></table><!-- End Wrapper -->
+
+<!-- Done -->
+
+
+
+</body></html>

@@ -10,9 +10,9 @@ class Mailer < ActionMailer::Base
     @invitation = invitation
     @signup_url = signup_url
     mail(
-      subject: "Invitation",
+      subject: "Invitation to join Jupiter!",
       to: invitation.recipient_email,
-      from: "foo@example.com"
+      from: "hello@jupiter.com"
     )
     invitation.update_attribute(:sent_at, Time.zone.now)
   end
