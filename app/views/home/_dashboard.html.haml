@@ -1,7 +1,7 @@
 .row{style: 'margin-top: 30px;'}
   .span4
     .well.well-small
-      %h4{style: 'margin-top: 0;'} Connect Your Calendars
+      %h4{style: 'margin-top: 0;'} Link Your Calendars
       Which calendars should we use to determine your availability?
     %ul
     = form_tag '/update_calendars' do |f|
@@ -13,7 +13,7 @@
       = submit_tag "Save", class: "btn btn-primary"
   .span4
     .well.well-small
-      %h4{style: 'margin-top: 0;'} Select Activities
+      %h4{style: 'margin-top: 0;'} Choose Activities
       What activities would you like to schedule with your friends?
     %ul
     = form_for current_user do |f|
