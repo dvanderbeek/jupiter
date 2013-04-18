@@ -1,7 +1,7 @@
-.row
+.row{style: 'margin-top: 30px;'}
   .span4
-    %h4 Connect Your Calendars
     .well.well-small
+      %h4{style: 'margin-top: 0;'} Connect Your Calendars
       Which calendars should we use to determine your availability?
     %ul
     = form_tag '/update_calendars' do |f|
@@ -12,8 +12,8 @@
           = calendar.summary
       = submit_tag "Save", class: "btn btn-primary"
   .span4
-    %h4 Select Activities
     .well.well-small
+      %h4{style: 'margin-top: 0;'} Select Activities
       What activities would you like to schedule with your friends?
     %ul
     = form_for current_user do |f|
@@ -24,23 +24,27 @@
           = activity.name
       = submit_tag "Save", class: "btn btn-primary"
   .span4
-    %h4 Invite Friends
     .well.well-small
+      %h4{style: 'margin-top: 0;'} Invite Friends
       Invite your friends to start planning activities together.
     
-    
-    = image_tag 'gmail.png', class: 'pull-left', style: 'margin-right: 5px;'
-    - unless current_user.contacts.nil?
-      %span{style: "padding-bottom: 10px; line-height: 15px; float: left;"}
-        = "#{current_user.contacts.length} Contacts Imported"
-        = link_to 'Refresh', 'contacts/gmail'
-    - else
-      %span{style: "padding-bottom: 10px; line-height: 15px; float: left;"}
-        = link_to 'Import Gmail contacts', 'contacts/gmail', class: "btn btn-small", style: "margin-bottom: 10px;"
-    %br
-    = simple_form_for @invitation do |f|
-      = f.input :recipient_email, label: false, placeholder: "Friend's email", input_html: {class: 'span4', autocomplete: "off", data: {provide: 'typeahead', source: @contacts}}
-      = f.submit "Send Invitation", class: "btn btn-primary"
+    %div.invite-panel
+      .title
+        Invite a Friend!
+      = image_tag 'gmail.png', class: 'pull-left', style: 'margin-right: 5px;'
+      - unless current_user.contacts.nil?
+        %span{style: "padding-bottom: 10px; line-height: 15px; float: left;"}
+          = "#{current_user.contacts.length} Contacts Imported"
+          = link_to 'Refresh', 'contacts/gmail'
+      - else
+        %span{style: "padding-bottom: 10px; line-height: 15px; float: left;"}
+          = link_to 'Import Gmail contacts', 'contacts/gmail', class: "btn btn-small", style: "margin-bottom: 10px;"
+      %br
+      = simple_form_for @invitation, html: { style: 'margin: 0' } do |f|
+        .row-fluid
+          = f.input :recipient_email, label: false, placeholder: "Friend's email", input_html: {class: 'span12', style: 'margin: 0;', autocomplete: "off", data: {provide: 'typeahead', source: @contacts}}
+          = f.submit "Send Invitation", class: "btn btn-primary pull-right"
+      .clearfix
 
     %h5 Your Sent Invitations
     - if @sent_invitations.length > 0
