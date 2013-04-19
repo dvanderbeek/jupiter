@@ -17,6 +17,7 @@
 		@include border-radius(3px);
 		color: #fff;
 		text-decoration: none;
+		@include transition(all 0.3s);
 		&:hover {
 			background: #018FD5;
 		}
