@@ -8,25 +8,25 @@
 .container
   .row{style: 'margin-top: 30px;'}
     .span12
-      / %div.invite-panel
-      /   .well.well-small
-      /     %h4 Invite Friends
-      /     Invite your friends to start planning activities together.
-      /   %div{style: "padding: 9px;"}
-      /     = image_tag 'gmail.png', class: 'pull-left', style: 'margin-right: 5px;'
-      /     - unless current_user.contacts.nil?
-      /       %span{style: "padding-bottom: 10px; line-height: 15px; float: left;"}
-      /         = "#{current_user.contacts.length} Contacts Imported"
-      /         = link_to 'Refresh', 'contacts/gmail'
-      /     - else
-      /       %span{style: "padding-bottom: 10px; line-height: 15px; float: left;"}
-      /         = link_to 'Import Gmail contacts', 'contacts/gmail', class: "btn btn-small", style: "margin-bottom: 10px;"
-      /     %br
-      /     = simple_form_for @invitation, html: { style: 'margin: 0' } do |f|
-      /       .row-fluid
-      /         = f.input :recipient_email, label: false, placeholder: "Friend's email", input_html: {class: 'span12', style: 'margin: 0;', autocomplete: "off", data: {provide: 'typeahead', source: @contacts}}
-      /         = f.submit "Send Invitation", class: "btn btn-primary pull-right"
-      /   .clearfix
+      %div.invite-panel
+        .well.well-small
+          %h4 Invite Friends
+          Invite your friends to start planning activities together.
+        %div{style: "padding: 9px;"}
+          = image_tag 'gmail.png', class: 'pull-left', style: 'margin-right: 5px;'
+          - unless current_user.contacts.nil?
+            %span{style: "padding-bottom: 10px; line-height: 15px; float: left;"}
+              = "#{current_user.contacts.length} Contacts Imported"
+              = link_to 'Refresh', 'contacts/gmail'
+          - else
+            %span{style: "padding-bottom: 10px; line-height: 15px; float: left;"}
+              = link_to 'Import Gmail contacts', 'contacts/gmail', class: "btn btn-small", style: "margin-bottom: 10px;"
+          %br
+          = simple_form_for @invitation, html: { style: 'margin: 0' } do |f|
+            .row-fluid
+              = f.input :recipient_email, label: false, placeholder: "Friend's email", input_html: {class: 'span12', style: 'margin: 0;', autocomplete: "off", data: {provide: 'typeahead', source: @contacts}}
+              = f.submit "Send Invitation", class: "btn btn-primary pull-right"
+        .clearfix
       .tab-content{style: 'border: 1px solid #f1f1f1;'}
         .tab-pane.active#invite-list
           %div{style: "padding: 5px;"}
