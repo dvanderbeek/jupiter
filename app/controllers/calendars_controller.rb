@@ -7,6 +7,6 @@ class CalendarsController < ApplicationController
 				cal.save unless cal.calendar_id.blank?
 			end
 		end
-		redirect_to root_url, notice: "Calendars updated!"
+		redirect_to '/activities', notice: "Calendars updated!"
 	end
 end

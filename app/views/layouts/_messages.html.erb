@@ -1,0 +1,14 @@
+<% if flash[:error] -%>
+	<div class="container flash" style='margin: 20px auto;'>
+		<div class='alert alert-error' style='margin: 0;'>
+			<%=h flash[:error] %>
+  	</div>
+  </div>
+<% end -%>
+<% if flash[:notice] -%>
+	<div class="container flash" style='margin: 20px auto;'>
+		<div class='alert alert-info' style='margin: 0;'>
+			<%=h flash[:notice] %>
+  	</div>
+  </div>
+<% end -%>

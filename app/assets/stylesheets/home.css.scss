@@ -51,3 +51,25 @@
 		@include box-shadow(0px 0px 5px #00a2ff);
 	}
 }
+
+#invite-list {
+	table {
+		margin: 0;
+	}
+	.remove {
+		cursor: pointer;
+	}
+}
+
+#contacts {
+	width: 100%;
+}
+
+.gmail-import {
+	text-align: center;
+	width: 100%;
+	padding: 20px 0;
+	&:hover {
+		background: #FEFFBD;
+	}
+}

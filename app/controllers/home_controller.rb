@@ -35,4 +35,23 @@ class HomeController < ApplicationController
 		  end
   	end
   end
+
+  def activities
+  	@activities = Activity.all
+  end
+
+  def invites
+    if current_user
+	    @invitation = Invitation.new
+
+	    @sent_invitations = current_user.sent_invitations.order('sent_at DESC')
+
+	    @contacts = []
+	    unless current_user.contacts.nil?
+		    current_user.contacts.each do |contact|
+		    	@contacts.push contact[:email]
+		    end
+		  end
+  	end
+  end
 end

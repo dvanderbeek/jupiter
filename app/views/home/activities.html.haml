@@ -1,0 +1,21 @@
+- if current_user
+  %h1.page-title 
+    .container
+      Choose Activities
+
+= render 'layouts/messages'
+
+.container
+  .row{style: 'margin-top: 30px;'}
+    .span12
+      .well.well-small
+        %h4 Choose Activities
+        What activities would you like to schedule with your friends?
+      %ul
+      = form_for current_user do |f|
+        = hidden_field_tag 'user[activity_ids][]', nil
+        - @activities.each do |activity|
+          %label.checkbox
+            = check_box_tag "user[activity_ids][]", activity.id, current_user.activity_ids.include?(activity.id), id: dom_id(activity)
+            = activity.name
+        = submit_tag "Save", class: "btn btn-primary"

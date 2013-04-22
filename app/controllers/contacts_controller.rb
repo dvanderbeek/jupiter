@@ -3,6 +3,6 @@ class ContactsController < ApplicationController
 		@contacts = request.env['omnicontacts.contacts']
 	  current_user.contacts = @contacts
 	  current_user.save
-	  redirect_to root_url, notice: "Contacts imported!"
+	  redirect_to '/invites', notice: "Contacts imported!"
 	end
 end

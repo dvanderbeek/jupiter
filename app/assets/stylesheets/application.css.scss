@@ -5,3 +5,17 @@
 .center {
 	text-align: center;
 }
+
+.no-margin { margin: 0; }
+
+.flash {
+	margin-bottom: 0px!important;
+}
+
+.table-striped tbody > tr:nth-child(odd) > td, .table-striped tbody > tr:nth-child(odd) > th {
+	background-color: #fff;
+}
+
+.table-striped tbody > tr:nth-child(even) > td, .table-striped tbody > tr:nth-child(even) > th {
+	background-color: #f9f9f9;
+}

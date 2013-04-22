@@ -1,0 +1,101 @@
+- if current_user
+  %h1.page-title 
+    .container
+      Invite Friends
+
+= render 'layouts/messages'
+
+.container
+  .row{style: 'margin-top: 30px;'}
+    .span12
+      / %div.invite-panel
+      /   .well.well-small
+      /     %h4 Invite Friends
+      /     Invite your friends to start planning activities together.
+      /   %div{style: "padding: 9px;"}
+      /     = image_tag 'gmail.png', class: 'pull-left', style: 'margin-right: 5px;'
+      /     - unless current_user.contacts.nil?
+      /       %span{style: "padding-bottom: 10px; line-height: 15px; float: left;"}
+      /         = "#{current_user.contacts.length} Contacts Imported"
+      /         = link_to 'Refresh', 'contacts/gmail'
+      /     - else
+      /       %span{style: "padding-bottom: 10px; line-height: 15px; float: left;"}
+      /         = link_to 'Import Gmail contacts', 'contacts/gmail', class: "btn btn-small", style: "margin-bottom: 10px;"
+      /     %br
+      /     = simple_form_for @invitation, html: { style: 'margin: 0' } do |f|
+      /       .row-fluid
+      /         = f.input :recipient_email, label: false, placeholder: "Friend's email", input_html: {class: 'span12', style: 'margin: 0;', autocomplete: "off", data: {provide: 'typeahead', source: @contacts}}
+      /         = f.submit "Send Invitation", class: "btn btn-primary pull-right"
+      /   .clearfix
+      .tab-content{style: 'border: 1px solid #f1f1f1;'}
+        .tab-pane.active#invite-list
+          %div{style: "padding: 5px;"}
+            .row-fluid
+              .span4
+                = link_to "Import Contacts", "#import-contacts", data: {toggle: 'tab'}, class: 'btn'
+              .span4.center{style: 'line-height: 30px; font-weight: bold;'}
+                Invite List
+          %div{style: "padding: 5px; background: #F9F9F9; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;"}
+            .alert.alert-error#invalid-email-error-message{style: 'margin-bottom: 5px; display: none;'} Please enter a valid email address
+            .input-append{style: "margin: 0;"}
+              = text_field_tag "email", '', class: "span10", id: "invite-email-field", placeholder: "Friend's Email", style: "margin: 0;"
+              %button.btn#invite-email-button
+                Add Friend
+          %div#invite-list
+            .some-content-related-div
+              .slimscroll
+                .well#no-invites.center{style: 'margin: 20px; color: #999;'}
+                  %h3 Add friends by email or import your contacts to get started!
+                %table.table.table-striped
+        .tab-pane#import-contacts
+          %div{style: "padding: 5px;"}
+            .row-fluid
+              .span4
+                = link_to "Invite List", "#invite-list", data: {toggle: 'tab'}, class: 'btn'
+              .span4.center{style: 'line-height: 30px; font-weight: bold;'}
+                Import Contacts
+              .span4
+          %div{style: "padding: 5px; background: #F9F9F9; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;"}
+            .row-fluid
+              - if current_user.contacts.nil?
+                %div{style: "color: #999999;"}
+                  %i.icon-lock
+                  %span{style: "font-weight: bold; font-size: 16px;"} 
+                    Securely Import Contacts
+              - else
+                .span4{style: 'line-height: 30px;'}
+                  = image_tag 'gmail-logo.png'
+                  = link_to 'Refresh', 'contacts/gmail'
+                .span4.center
+                  .row-fluid
+                    = text_field_tag "search", '', class: "span10", id: "search-contacts", placeholder: "Search Contacts", style: "margin: 0;" unless current_user.contacts.nil?
+                    = link_to raw("&times;"), "", class: "btn pull-right", id: "clear-search-contacts"
+                .span4
+          - if current_user.contacts.nil?
+            = link_to raw('<div class="gmail-import"><img src="assets/gmail-large.png" /></div>'), 'contacts/gmail'
+          - else
+            .some-content-related-div
+              .slimscroll
+                %table#contacts.table-condensed.table-striped{style: "table-layout: fixed; word-wrap: break-word;"}
+                  - current_user.contacts.each do |contact|
+                    - if contact[:email].length <= 50
+                      %tr
+                        %td.name= contact[:name]
+                        %td.email= contact[:email]
+                        %td.button-cell{style: 'width: 80px;'}= link_to 'Add to List', "#", class: 'btn btn-mini invite-button'
+    / .span4
+    /   %h5 Your Sent Invitations
+    /   - if @sent_invitations.length > 0
+    /     %table.table
+    /       - @sent_invitations.each do |invitation|
+    /         %tr
+    /           %td
+    /             = invitation.recipient_email
+    /           %td
+    /             - if User.find_by_email(invitation.recipient_email)
+    /               %span.label.label-success.pull-right Signed Up!
+    /             - else
+    /               %span.label.label-info.pull-right Pending
+    /   - else
+    /     .well
+    /       You have not sent any invitations yet!

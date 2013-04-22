@@ -1,65 +1,23 @@
-.row{style: 'margin-top: 30px;'}
-  .span4
-    .well.well-small
-      %h4 Link Your Calendars
-      Which calendars should we use to determine your availability?
-    %ul
-    = form_tag '/update_calendars' do |f|
-      = hidden_field_tag "calendars[]", nil
-      - @calendar_list.data.items.each do |calendar|
-        %label.checkbox
-          = check_box_tag "calendars[]", calendar.id, current_user.calendars.where(calendar_id: calendar.id).length > 0
-          = calendar.summary
-      = submit_tag "Save", class: "btn btn-primary"
-  .span4
-    .well.well-small
-      %h4 Choose Activities
-      What activities would you like to schedule with your friends?
-    %ul
-    = form_for current_user do |f|
-      = hidden_field_tag 'user[activity_ids][]', nil
-      - @activities.each do |activity|
-        %label.checkbox
-          = check_box_tag "user[activity_ids][]", activity.id, current_user.activity_ids.include?(activity.id), id: dom_id(activity)
-          = activity.name
-      = submit_tag "Save", class: "btn btn-primary"
-  .span4
-    / .well.well-small
-    /   %h4{style: 'margin-top: 0;'} Invite Friends
-    /   Invite your friends to start planning activities together.
-    
-    %div.invite-panel
-      .well.well-small
-        %h4 Invite Friends
-        Invite your friends to start planning activities together.
-      %div{style: "padding: 9px;"}
-        = image_tag 'gmail.png', class: 'pull-left', style: 'margin-right: 5px;'
-        - unless current_user.contacts.nil?
-          %span{style: "padding-bottom: 10px; line-height: 15px; float: left;"}
-            = "#{current_user.contacts.length} Contacts Imported"
-            = link_to 'Refresh', 'contacts/gmail'
-        - else
-          %span{style: "padding-bottom: 10px; line-height: 15px; float: left;"}
-            = link_to 'Import Gmail contacts', 'contacts/gmail', class: "btn btn-small", style: "margin-bottom: 10px;"
-        %br
-        = simple_form_for @invitation, html: { style: 'margin: 0' } do |f|
-          .row-fluid
-            = f.input :recipient_email, label: false, placeholder: "Friend's email", input_html: {class: 'span12', style: 'margin: 0;', autocomplete: "off", data: {provide: 'typeahead', source: @contacts}}
-            = f.submit "Send Invitation", class: "btn btn-primary pull-right"
-      .clearfix
+- if current_user
+  %h1.page-title 
+    .container
+      Link Calendars
 
-    %h5 Your Sent Invitations
-    - if @sent_invitations.length > 0
-      %table.table
-        - @sent_invitations.each do |invitation|
-          %tr
-            %td
-              = invitation.recipient_email
-            %td
-              - if User.find_by_email(invitation.recipient_email)
-                %span.label.label-success.pull-right Signed Up!
-              - else
-                %span.label.label-info.pull-right Pending
-    - else
-      .well
-        You have not sent any invitations yet!
+= render 'layouts/messages'
+
+.container
+  .row{style: 'margin-top: 30px;'}
+    .span12
+      .well.well-small
+        %h4 Link Your Calendars
+        Which calendars should we use to determine your availability?
+      = form_tag '/update_calendars' do |f|
+        = hidden_field_tag "calendars[]", nil
+        - @calendar_list.data.items.each do |calendar|
+          %label.checkbox.calendar
+            %i.icon-calendar
+            = check_box_tag "calendars[]", calendar.id, current_user.calendars.where(calendar_id: calendar.id).length > 0
+            = calendar.summary
+        = submit_tag "Save", class: "btn btn-primary"
+    
+

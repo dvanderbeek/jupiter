@@ -2,6 +2,9 @@ Jupiter::Application.routes.draw do
 
   resources :invitations
 
+  match '/invites' => 'home#invites'
+  match '/activities' => 'home#activities'
+
   match '/auth/:provider/callback' => 'sessions#create'
   match '/auth/failure' => redirect('/')
   match '/signout' => 'sessions#destroy', as: 'signout'

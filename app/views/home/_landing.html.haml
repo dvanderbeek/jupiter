@@ -1,21 +1,22 @@
-.row
-	.span12
-		.well.center{style: "margin-top: 30px;"}
-			%h1 You want to get together with friends.  
-			%h2 Let us plan it!
-			- if @invite
-				%p
-					Sign up with Google to start planning activities with 
-					= @invite.sender.name
-			%div.cta
-				= link_to "Get Started", "/auth/google_oauth2", class: 'red'
-.row
-	.span4
-		.well
-			%h4.center	Link Your Calendars
-	.span4
-		.well
-			%h4.center Choose Activities
-	.span4
-		.well
-			%h4.center Invite Friends
+.container
+	.row
+		.span12
+			.well.center{style: "margin-top: 30px;"}
+				%h1 You want to get together with friends.  
+				%h2 Let us plan it!
+				- if @invite
+					%p
+						Sign up with Google to start planning activities with 
+						= @invite.sender.name
+				%div.cta
+					= link_to "Get Started", "/auth/google_oauth2", class: 'red'
+	.row
+		.span4
+			.well
+				%h4.center	Link Your Calendars
+		.span4
+			.well
+				%h4.center Choose Activities
+		.span4
+			.well
+				%h4.center Invite Friends

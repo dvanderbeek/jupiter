@@ -7,7 +7,7 @@ class InvitationsController < ApplicationController
       redirect_to root_url, notice: "Your invitation has been sent!"
 	  else
 	  	puts "Failure"
-	    redirect_to root_url, :flash => { :error => "There was an error sending your invitation!" }
+	    redirect_to '/invites', :flash => { :error => "There was an error sending your invitation!" }
 	  end
 	end
 end
