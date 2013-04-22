@@ -1,0 +1,25 @@
+- if current_user
+  %h1.page-title 
+    .container
+      Your Sent Invitations
+
+= render 'layouts/messages'
+
+.container
+  .row
+    .span12
+      %h5 Your Sent Invitations
+      - if @sent_invitations.length > 0
+        %table.table
+          - @sent_invitations.each do |invitation|
+            %tr
+              %td
+                = invitation.recipient_email
+              %td
+                - if User.find_by_email(invitation.recipient_email)
+                  %span.label.label-success.pull-right Signed Up!
+                - else
+                  %span.label.label-info.pull-right Pending
+      - else
+        .well
+          You have not sent any invitations yet!
