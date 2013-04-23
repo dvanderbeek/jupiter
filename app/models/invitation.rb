@@ -5,7 +5,7 @@ class Invitation < ActiveRecord::Base
 	has_one :recipient, :class_name => 'User'
 
 	validates_presence_of :recipient_email
-	validate :recipient_is_not_registered if Rails.env.development?
+	validate :recipient_is_not_registered
 
 	before_create :generate_token
 

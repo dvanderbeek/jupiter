@@ -3,35 +3,48 @@ $ ->
 	  regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
 	  regex.test email
 
+  emailIsNew = (email) ->
+    newEmail = true
+    $("#invite-list td.email").each ->
+      if $(this).text() == email
+        newEmail = false
+    return newEmail
+
 	searchTable = (inputVal) ->
-  table = $("#contacts")
-  table.find("tr").each (index, row) ->
-    allCells = $(row).find("td")
-    if allCells.length > 0
-      found = false
-      allCells.each (index, td) ->
-        regExp = new RegExp(inputVal, "i")
-        if regExp.test($(td).text())
-          found = true
-          false
+    table = $("#contacts")
+    table.find("tr").each (index, row) ->
+      allCells = $(row).find("td")
+      if allCells.length > 0
+        found = false
+        allCells.each (index, td) ->
+          regExp = new RegExp(inputVal, "i")
+          if regExp.test($(td).text())
+            found = true
+            false
 
-      if found is true
-        $(row).show()
-      else
-        $(row).hide()
+        if found is true
+          $(row).show()
+        else
+          $(row).hide()
 
-	addToInviteList = (name, email) ->
-		if name == ""
-			name = email.split("@")[0]
-		$("#no-invites").hide()
-		html = "<tr>"
-		html += "<td class='name' contenteditable='true'>"+name+"</td>"
-		html += "<td class='email' contenteditable='true'>"+email+"</td>"
-		html += "<td><button class='btn btn-mini remove pull-right'>&times;</button></td>"
-		html += "</tr>"
+  addToInviteList = (name, email) ->
+    if name == ""
+      name = email.split("@")[0]
+    $("#no-invites").hide()
+    html = "<tr>"
+    html += "<td class='name'>"+name+"</td>"
+    html += "<td class='email'>"+email+"<input type='hidden' name='emails[]' value='"+email+"' /></td>"
+    html += "<td><button class='btn btn-mini remove pull-right'>&times;</button></td>"
+    html += "</tr>"
 
-		$("#invite-list table").prepend(html)
-		# alert "Added " + email + " to Invite List"
+    $('#contacts tr td.email').each ->
+      if $(this).text() == email
+        $(this).siblings('.button-cell').children(".invite-button").addClass("btn-success")
+
+    if emailIsNew email
+      $("#invite-list table").prepend(html)
+    else
+      alert "This email is already in your invite list!"
 
 	removeFromInviteList = (name, email) ->
 		$("#invite-list td").each ->
@@ -45,8 +58,7 @@ $ ->
 			if $(this).text() == email
 				$(this).siblings('.button-cell').children(".invite-button").removeClass("btn-success")
 
-
-	$('#invite-email-button').click ->
+	$('#invite-email-form').submit ->
 		email = $('#invite-email-field').val()
 		if isEmail email
 			addToInviteList("", email)
@@ -70,7 +82,10 @@ $ ->
 		height: '350px'
 
 	$("#search-contacts").keyup ->
-    searchTable $(this).val()
+    searchTable $(this).val() 
+
+  $("#send-invites").click ->
+    $("#invites-form").submit()
 
   $("#clear-search-contacts").click ->
   	event.preventDefault()

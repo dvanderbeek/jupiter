@@ -2,6 +2,8 @@ Jupiter::Application.routes.draw do
   require 'sidekiq/web'
   resources :invitations
   mount Sidekiq::Web, at: '/sidekiq'
+
+  match '/invitations/batch_create' => 'invitations#batch_create'
   match '/invite_friends' => 'home#invites'
   match '/activities' => 'home#activities'
 
