@@ -14,10 +14,11 @@
       = form_tag '/update_calendars' do |f|
         = hidden_field_tag "calendars[]", nil
         - @calendar_list.data.items.each do |calendar|
-          %label.checkbox.calendar
-            %i.icon-calendar
-            = check_box_tag "calendars[]", calendar.id, current_user.calendars.where(calendar_id: calendar.id).length > 0
-            = calendar.summary
+          - if calendar.accessRole == "owner"
+            %label.checkbox.calendar
+              %i.icon-calendar
+              = check_box_tag "calendars[]", calendar.id, current_user.calendars.where(calendar_id: calendar.id).length > 0
+              = calendar.summary
         = submit_tag "Save", class: "btn btn-primary"
     
 
