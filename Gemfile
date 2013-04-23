@@ -22,6 +22,7 @@ gem 'gon'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
+gem 'autoscaler'
 
 group :development do
   gem 'better_errors'
