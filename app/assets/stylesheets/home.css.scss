@@ -52,6 +52,19 @@
 	}
 }
 
+#invite-btn {
+	height: 30px;
+	width: 99px;
+	display: inline-block;
+	background: url(invite-list-btn-sprite.png);
+	&:hover {
+		background-position-y: -60px;
+	}
+	&:active {
+		background-position-y: -30px;
+	}
+}
+
 #invite-list {
 	table {
 		margin: 0;

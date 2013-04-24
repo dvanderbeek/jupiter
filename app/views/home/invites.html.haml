@@ -53,7 +53,7 @@
           %div{style: "padding: 5px;"}
             .row-fluid
               .span4
-                = link_to image_tag('invite-list-btn.png'), "#invite-list", data: {toggle: 'tab'}
+                = link_to "", "#invite-list", id: "invite-btn", data: {toggle: 'tab'}
               .span4.center{style: 'line-height: 30px; font-weight: bold;'}
                 Import Contacts
               .span4
@@ -81,7 +81,7 @@
                 %table#contacts.table-condensed.table-striped{style: "table-layout: fixed; word-wrap: break-word;"}
                   - current_user.contacts.each do |contact|
                     - if contact[:email].length <= 50
-                      %tr
+                      %tr.contact
                         %td.name= contact[:name]
                         %td.email= contact[:email]
                         %td.button-cell{style: 'width: 80px;'}= link_to 'Add to List', "#", class: 'btn btn-mini invite-button'
