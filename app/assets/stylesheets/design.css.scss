@@ -4,6 +4,12 @@ $orange: #F26921;
 $purple: #46134C;
 $footer: #97D4CD;
 
+body {
+	color: $purple;
+}
+.light-text {
+	font-weight: normal;
+}
 .teal {
 	background: $teal;
 }
@@ -16,6 +22,10 @@ $footer: #97D4CD;
 .purple {
 	background: $purple;
 }
+.teal-text {
+	color: $teal;
+}
+
 .features {
 	margin-bottom: 20px;
 }
@@ -32,10 +42,6 @@ $footer: #97D4CD;
 #headline {
 	font-size: 30px;
 	font-weight: 400;
-}
-
-.teal-text {
-	color: $teal;
 }
 
 #copyright {

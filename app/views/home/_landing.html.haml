@@ -1,18 +1,10 @@
 .container
 	.row
 		.span12
-			.well.center{style: "margin-top: 30px;"}
+			.center{style: "margin-top: 30px;"}
 				%h1#headline
 					You want to get together with friends.  
 					%span.teal-text Let us plan it!
-				- if @invite
-					%p
-						Sign up with Google to start planning activities with 
-						= @invite.sender.name
-				%div.cta
-					= link_to "Sign Up With Google", "/auth/google_oauth2", class: 'red'
-				%div
-					= link_to "Shoot, I don't use Google", no_google_path
 	.row.features
 		.span3.feature
 			%h4.center.teal	Link your calendars
@@ -26,3 +18,15 @@
 		.span3.feature
 			%h4.center.purple Find times that work
 			= image_tag 'step4.jpg'
+	.row
+		.span12
+			.center
+				%h4.light-text Let Jupiter find times and suggest fun plans for you and your busy friends
+				- if @invite
+					%p
+						Sign up with Google to start planning activities with 
+						= @invite.sender.name
+				%div.cta
+					= link_to "Join Jupiter With Google", "/auth/google_oauth2", class: 'red'
+				%div
+					= link_to "Shoot, I don't use Google", no_google_path
