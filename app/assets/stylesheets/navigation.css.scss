@@ -2,7 +2,7 @@
 #user_nav {
 	background: #FFF;
 	padding: 20px 0;
-	color: #fff;
+	color: #333;
 	.logo a {
 		color: $orange;
 		text-decoration: none;
@@ -27,7 +27,7 @@
 		text-decoration: none;
 		@include transition(all 0.3s);
 		&:hover {
-			background: #018FD5;
+			background: $teal;
 		}
 	}
 }

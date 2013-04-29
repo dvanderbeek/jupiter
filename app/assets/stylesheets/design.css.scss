@@ -16,12 +16,21 @@ $footer: #97D4CD;
 .purple {
 	background: $purple;
 }
-
+.features {
+	margin-bottom: 20px;
+}
 .feature {
 	h4 {
 		color: #FFF;
 		padding: 5px 0;
 		font-weight: 300;
 		font-size: 16px;
+		margin: 0;
 	}
+}
+
+#copyright {
+	position: absolute;
+	top: 28px;
+	left: 20px;
 }
