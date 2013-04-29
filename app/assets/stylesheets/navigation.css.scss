@@ -1,20 +1,28 @@
+
 #user_nav {
-	background: #1c2235;
+	background: #FFF;
 	padding: 20px 0;
 	color: #fff;
 	.logo a {
-		color: #fff;
+		color: $orange;
 		text-decoration: none;
-		font-size: 26px;
+		font-size: 44px;
+		font-weight: bolder;
 		text-transform: uppercase;
 		&:hover {
-			color: #ddd;
+			color: darken($orange, 5%);
 		}
+	}
+	hr {
+		margin: 20px 0 0 0;
+		border-top: 1px solid #9E81A0;
 	}
 	.google_sign_in {
 		background: #454E5D;
+		@include gradient-vertical(lighten($orange, 20%), $orange);
+		font-weight: bold;
+		font-size: 15px;
 		padding: 10px 20px;
-		@include border-radius(3px);
 		color: #fff;
 		text-decoration: none;
 		@include transition(all 0.3s);

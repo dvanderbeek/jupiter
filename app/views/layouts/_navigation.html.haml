@@ -1,7 +1,7 @@
 #user_nav
   .container
-    .logo.pull-left= link_to "Jupiter", root_url
-    .pull-right
+    .logo.pull-left= link_to image_tag('jupiter-logo.png'), root_url
+    .pull-right{style: "margin-top: 7px;"}
       - if current_user
         Signed in as
         = succeed "" do
@@ -9,3 +9,5 @@
         = link_to "Sign out", signout_path, id: "sign_out", class: "google_sign_in"
       - else
         = link_to "Sign in with Google", "/auth/google_oauth2", class: "google_sign_in"
+    .clearfix
+    %hr

@@ -85,7 +85,9 @@
                         %td.name= contact[:name]
                         %td.email= contact[:email]
                         %td.button-cell{style: 'width: 80px;'}= link_to 'Add to List', "#", class: 'btn btn-mini invite-button'
-      = link_to "Send Invitations", "#", class: "btn btn-primary pull-right", id: "send-invites"
+      %div{style: 'margin-top: 10px;'}
+        = link_to "Send Invitations", "#", class: "btn btn-primary pull-right", id: "send-invites"
+        = link_to "Done Inviting Friends", invitations_path, class: 'btn pull-right', style: "margin-right: 15px;"
     / .span4
     /   %h5 Your Sent Invitations
     /   - if @sent_invitations.length > 0

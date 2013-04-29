@@ -9,14 +9,15 @@
 						Sign up with Google to start planning activities with 
 						= @invite.sender.name
 				%div.cta
-					= link_to "Get Started", "/auth/google_oauth2", class: 'red'
+					= link_to "Sign Up With Google", "/auth/google_oauth2", class: 'red'
+				%div
+					= link_to "Shoot, I don't use Google", no_google_path
 	.row
-		.span4
-			.well
-				%h4.center	Link Your Calendars
-		.span4
-			.well
-				%h4.center Choose Activities
-		.span4
-			.well
-				%h4.center Invite Friends
+		.span3.feature
+			%h4.center.teal	Link Your Calendars
+		.span3.feature
+			%h4.center.yellow Choose Activities
+		.span3.feature
+			%h4.center.orange Invite Friends
+		.span3.feature
+			%h4.center.purple Make Plans

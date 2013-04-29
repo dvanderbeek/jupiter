@@ -1,0 +1,27 @@
+$teal: #21D0C1;
+$yellow: #FFD630;
+$orange: #F26921;
+$purple: #46134C;
+$footer: #97D4CD;
+
+.teal {
+	background: $teal;
+}
+.yellow {
+	background: $yellow;
+}
+.orange {
+	background: $orange;
+}
+.purple {
+	background: $purple;
+}
+
+.feature {
+	h4 {
+		color: #FFF;
+		padding: 5px 0;
+		font-weight: 300;
+		font-size: 16px;
+	}
+}

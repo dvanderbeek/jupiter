@@ -14,6 +14,9 @@ Jupiter::Application.routes.draw do
   match "/contacts/:importer/callback" => "contacts#add_contacts"
   match "/update_calendars" => "calendars#update_calendars"
 
+  match "/events" => "home#events"
+  match "/no-google" => "home#no-google", as: 'no_google'
+
   resources :users, only: :update
 
   root to: "home#index"

@@ -1,0 +1,8 @@
+.container	
+	%h1 Your Events
+	/ = debug @calendar_list.data.items
+	/ = debug @events
+	- @events.data.items.each do |event|
+		= event.summary
+		%br
+	= link_to "Next Page", '/events?page_token='+@events.data.next_page_token if @events.data.next_page_token

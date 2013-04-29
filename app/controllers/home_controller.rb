@@ -1,4 +1,25 @@
 class HomeController < ApplicationController
+	def events
+		calendar = current_user.google_client.discovered_api('calendar', 'v3')
+		@calendar_list = current_user.google_client.execute(
+	      :api_method => calendar.calendar_list.list,
+	      :parameters => {},
+	      :headers => {'Content-Type' => 'application/json'})
+		if params[:page_token].nil?
+	    @events ||= current_user.google_client.execute(
+	    	api_method: calendar.events.list,
+	    	parameters: {'calendarId' => 'earlynovrock@gmail.com'},
+	    	headers: {'Content-Type' => 'application/json'}
+	    )
+	  else
+	  	@events ||= current_user.google_client.execute(
+	    	api_method: calendar.events.list,
+	    	parameters: {'calendarId' => 'earlynovrock@gmail.com', 'pageToken' => params[:page_token]},
+	    	headers: {'Content-Type' => 'application/json'}
+	    )
+	  end
+	end
+
   def index
   	if params[:invitation_token]
   		@invite = Invitation.find_by_token(params[:invitation_token])
