@@ -1,24 +1,28 @@
-- if current_user
-  %h1.page-title 
-    .container
-      Link Calendars
-
 = render 'layouts/messages'
-
 .container
+  = render 'home/welcome'
   .row{style: 'margin-top: 30px;'}
-    .span12
-      .well.well-small
-        %h4 Link Your Calendars
-        Which calendars should we use to determine your availability?
+    .span4
+      %h4.center.step.teal 1. Link your calendars
+    .span4
+      %h4.center.step.step-inactive 2. Choose activities
+    .span4
+      %h4.center.step.step-inactive 3. Invite your friends
+    .span12{style: 'border-top: 1px solid #9C81A0;'}
+      %h4 
+        Share your calendars with Jupiter so we can make plans that work for you.
+      %h5 
+        Don't worry; no one can view the details of your calendar. We'll only use it to check your availability and will never share your information with a third party.
       = form_tag '/update_calendars' do |f|
         = hidden_field_tag "calendars[]", nil
         - @calendar_list.data.items.each do |calendar|
           - if calendar.accessRole == "owner"
-            %label.checkbox.calendar
-              %i.icon-calendar
+            %label.checkbox.calendar{style: 'margin: 20px 0; width: 25%; float: left; box-sizing: border-box;'}
+              = image_tag 'calendar-icon.jpg'
+              %br
               = check_box_tag "calendars[]", calendar.id, current_user.calendars.where(calendar_id: calendar.id).length > 0
               = calendar.summary
-        = submit_tag "Save", class: "btn btn-primary"
+        .clearfix
+        = submit_tag "Next", class: "btn btn-warning pull-right"
     
 

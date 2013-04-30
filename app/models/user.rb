@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
 
   serialize :contacts
 
+  def first_name
+  	name.to_s.split(" ")[0]
+  end
+
   def invitation_token
 	  invitation.token if invitation
 	end

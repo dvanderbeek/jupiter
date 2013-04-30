@@ -8,6 +8,10 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: 'Noto Sans', sans-serif;
 }
 
+.btn {
+	@include border-radius(0px);
+}
+
 body {
 	color: $purple;
 	font-family: "Helvetica Neue"
@@ -30,6 +34,21 @@ body {
 .teal-text {
 	color: $teal;
 }
+.orange-text {
+	color: $orange;
+}
+
+.step {
+	color: #fff;
+	font-family: "Helvetica Neue";
+	font-weight: 300;
+	padding: 5px 0;
+	margin: 0;
+}
+.step-inactive {
+	background: #D9D9D9;
+}
+
 
 .features {
 	margin-bottom: 20px;

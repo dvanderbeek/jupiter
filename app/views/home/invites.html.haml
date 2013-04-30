@@ -1,32 +1,15 @@
-- if current_user
-  %h1.page-title 
-    .container
-      Invite Friends
-
 = render 'layouts/messages'
-
 .container
+  = render 'home/welcome'
   .row{style: 'margin-top: 30px;'}
-    .span12
-      / %div.invite-panel
-      /   .well.well-small
-      /     %h4 Invite Friends
-      /     Invite your friends to start planning activities together.
-      /   %div{style: "padding: 9px;"}
-      /     = image_tag 'gmail.png', class: 'pull-left', style: 'margin-right: 5px;'
-      /     - unless current_user.contacts.nil?
-      /       %span{style: "padding-bottom: 10px; line-height: 15px; float: left;"}
-      /         = "#{current_user.contacts.length} Contacts Imported"
-      /         = link_to 'Refresh', 'contacts/gmail'
-      /     - else
-      /       %span{style: "padding-bottom: 10px; line-height: 15px; float: left;"}
-      /         = link_to 'Import Gmail contacts', 'contacts/gmail', class: "btn btn-small", style: "margin-bottom: 10px;"
-      /     %br
-      /     = simple_form_for @invitation, html: { style: 'margin: 0' } do |f|
-      /       .row-fluid
-      /         = f.input :recipient_email, label: false, placeholder: "Friend's email", input_html: {class: 'span12', style: 'margin: 0;', autocomplete: "off", data: {provide: 'typeahead', source: @contacts}}
-      /         = f.submit "Send Invitation", class: "btn btn-primary pull-right"
-      /   .clearfix
+    .span4
+      %h4.center.step.step-inactive 1. Link your calendars
+    .span4
+      %h4.center.step.step-inactive 2. Choose activities
+    .span4
+      %h4.center.step.orange 3. Invite your friends
+    .span12{style: 'border-top: 1px solid #9C81A0;'}
+      %h4 Almost there! Invite your friends to start planning activities with them as soon as they join.
       .tab-content{style: 'border: 1px solid #f1f1f1;'}
         .tab-pane.active#invite-list
           %div{style: "padding: 5px;"}
@@ -41,7 +24,7 @@
             = form_tag "#", id: "invite-email-form", remote: true, class: "no-margin" do
               .input-append{style: "margin: 0;"}
                 = text_field_tag "email", '', class: "span10", id: "invite-email-field", placeholder: "Friend's Email", style: "margin: 0;"
-                = submit_tag "Add Friend", class: 'btn', id: "invite-email-button"
+                = submit_tag "Add Friend", class: 'btn btn-warning', id: "invite-email-button"
           %div#invite-list
             .some-content-related-div
               .slimscroll
@@ -85,22 +68,7 @@
                         %td.name= contact[:name]
                         %td.email= contact[:email]
                         %td.button-cell{style: 'width: 80px;'}= link_to 'Add to List', "#", class: 'btn btn-mini invite-button'
-      %div{style: 'margin-top: 10px;'}
-        = link_to "Send Invitations", "#", class: "btn btn-primary pull-right", id: "send-invites"
+      %div{style: 'margin: 10px 0;'}
+        = link_to "Previous", "/activities", class: "btn"
+        = link_to "Send Invitations", "#", class: "btn btn-warning pull-right", id: "send-invites"
         = link_to "Done Inviting Friends", invitations_path, class: 'btn pull-right', style: "margin-right: 15px;"
-    / .span4
-    /   %h5 Your Sent Invitations
-    /   - if @sent_invitations.length > 0
-    /     %table.table
-    /       - @sent_invitations.each do |invitation|
-    /         %tr
-    /           %td
-    /             = invitation.recipient_email
-    /           %td
-    /             - if User.find_by_email(invitation.recipient_email)
-    /               %span.label.label-success.pull-right Signed Up!
-    /             - else
-    /               %span.label.label-info.pull-right Pending
-    /   - else
-    /     .well
-    /       You have not sent any invitations yet!

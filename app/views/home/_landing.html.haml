@@ -27,9 +27,9 @@
 						Sign up with Google to start planning activities with 
 						= @invite.sender.name
 				%div.cta
-					= link_to "Join Jupiter With Google", "/auth/google_oauth2", class: 'red'
+					= link_to "Join Jupiter With Google", "/auth/google_oauth2", class: 'btn btn-warning btn-large'
 				%div
-					= link_to "Shoot, I don't use Google", no_google_path
+					= link_to "What if I don't have a Google account?", no_google_path, class: 'orange-text'
 	%hr
 	.row
 		.span4

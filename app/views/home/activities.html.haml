@@ -1,21 +1,25 @@
-- if current_user
-  %h1.page-title 
-    .container
-      Choose Activities
-
 = render 'layouts/messages'
-
 .container
+  = render 'home/welcome'
   .row{style: 'margin-top: 30px;'}
-    .span12
-      .well.well-small
-        %h4 Choose Activities
-        What activities would you like to schedule with your friends?
+    .span4
+      %h4.center.step.step-inactive 1. Link your calendars
+    .span4
+      %h4.center.step.yellow 2. Choose activities
+    .span4
+      %h4.center.step.step-inactive 3. Invite your friends
+    .span12{style: 'border-top: 1px solid #9C81A0;'}
+      %h4 Next, select any activities you enjoy doing with friends.
+      %h5 Choose as many as you like (but be sure to choose at least one). You’ll be able to match specific activities with friends later – we won’t send you on a playdate with your kid-free neighbor.
       %ul
       = form_for current_user do |f|
         = hidden_field_tag 'user[activity_ids][]', nil
         - @activities.each do |activity|
-          %label.checkbox
+          %label.checkbox.calendar{style: 'margin: 20px 0; width: 25%; float: left; box-sizing: border-box;'}
+            = image_tag 'activities/'+activity.name.downcase+'.jpg'
+            %br
             = check_box_tag "user[activity_ids][]", activity.id, current_user.activity_ids.include?(activity.id), id: dom_id(activity)
             = activity.name
-        = submit_tag "Save", class: "btn btn-primary"
+        .clearfix
+        = link_to "Previous", root_url, class: "btn"
+        = submit_tag "Next", class: "btn btn-warning pull-right"
