@@ -10,7 +10,7 @@ class Mailer < ActionMailer::Base
     @invitation = invitation
     @signup_url = signup_url
 
-    attachments.inline['jupiter-logo.jpg'] = File.read("#{Rails.root}/app/assets/images/emails/logo.jpg")
+    attachments.inline['logo.jpg'] = File.read("#{Rails.root}/app/assets/images/emails/logo.jpg")
     attachments.inline['accept-invite.jpg'] = File.read("#{Rails.root}/app/assets/images/emails/accept-invite.jpg")
     attachments.inline['step1.jpg'] = File.read("#{Rails.root}/app/assets/images/emails/step1.jpg")
     attachments.inline['step2.jpg'] = File.read("#{Rails.root}/app/assets/images/emails/step2.jpg")
