@@ -21,13 +21,15 @@
 	.row
 		.span12
 			.center
-				%h4.light-text Let Jupiter find times and suggest fun plans for you and your busy friends
 				- if @invite
-					%p
-						Sign up with Google to start planning activities with 
+					%h4.light-text
+						Sign up with your Google account to start planning activities with 
 						= @invite.sender.name
+				- else
+					%h4.light-text 
+						Sign up with your Google account and let Jupiter find times and suggest fun plans for you and your busy friends
 				%div.cta
-					= link_to "Join Jupiter With Google", "/auth/google_oauth2", class: 'btn btn-warning btn-large'
+					= link_to "Join Jupiter", "/auth/google_oauth2", class: 'btn btn-warning btn-large'
 				%div
 					= link_to "What if I don't have a Google account?", no_google_path, class: 'orange-text'
 	%hr
