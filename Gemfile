@@ -22,6 +22,7 @@ gem 'gon'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'better_errors'

@@ -124,6 +124,7 @@ GEM
     multi_json (1.7.2)
     multi_xml (0.5.3)
     multipart-post (1.2.0)
+    newrelic_rpm (3.5.4.34)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -238,6 +239,7 @@ DEPENDENCIES
   koala
   letter_opener
   meta_request
+  newrelic_rpm
   omniauth-facebook (= 1.4.0)
   omniauth-google-oauth2!
   omnicontacts
