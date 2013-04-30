@@ -25,15 +25,18 @@
 		padding: 10px 20px;
 		color: #fff;
 		text-decoration: none;
-		@include transition(all 0.3s);
+		@include transition(all 0.1s);
 		&:hover {
 			background: $teal;
+		}
+		&:active {
+			background: darken($teal, 10%);
 		}
 	}
 }
 
 .page-title {
-	background: #018FD5;
+	background: $footer;
 	padding: 40px 0;
 	color: #fff;
 	margin: 0;
