@@ -4,8 +4,13 @@ $orange: #F26921;
 $purple: #46134C;
 $footer: #BBE4E0;
 
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Noto Sans', sans-serif;
+}
+
 body {
 	color: $purple;
+	font-family: "Helvetica Neue"
 }
 .light-text {
 	font-weight: normal;
@@ -36,6 +41,14 @@ body {
 		font-weight: 300;
 		font-size: 16px;
 		margin: 0;
+	}
+}
+
+#pain-points {
+	margin-top: 20px;
+	font-size: 15px;
+	img {
+		margin-bottom: 20px;
 	}
 }
 
