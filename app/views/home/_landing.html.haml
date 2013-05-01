@@ -1,38 +1,10 @@
 .container
-	.row
+	.row{style: "margin-bottom: 23px;"}
 		.span12
 			.center{style: "margin-top: 30px;"}
-				%h1#headline
+				%h1.headline
 					You want to get together with friends.  
 					%span.teal-text Let us plan it!
-	.row.features
-		.span3.feature
-			%h4.center.teal	Link your calendars
-			= image_tag 'step1.jpg'
-		.span3.feature
-			%h4.center.yellow Tell us what you like to do
-			= image_tag 'step2.jpg'
-		.span3.feature
-			%h4.center.orange Invite friends
-			= image_tag 'step3.jpg'
-		.span3.feature
-			%h4.center.purple Find times that work
-			= image_tag 'step4.jpg'
-	.row
-		.span12
-			.center
-				- if @invite
-					%h4.light-text
-						Sign up with your Google account to start planning activities with 
-						= @invite.sender.name
-				- else
-					%h4.light-text 
-						Sign up with your Google account and let Jupiter find times and suggest fun plans for you and your busy friends
-				%div.cta
-					= link_to "Join Jupiter", "/auth/google_oauth2", class: 'btn btn-warning btn-large'
-				%div
-					= link_to "What if I don't have a Google account?", no_google_path, class: 'orange-text'
-	%hr
 	.row
 		.span4
 			= image_tag 'iphone.jpg', style: "margin-left: 20px;"
@@ -48,3 +20,38 @@
 				.span4.center
 					= image_tag 'notify-icon.jpg'
 					%p We'll notify you with an email or text message, whichever you prefer
+			.row-fluid.center
+				.span12
+					= link_to "Join Jupiter", "/auth/google_oauth2", class: 'btn btn-warning btn-large'
+					%div{style: 'margin-top: 5px;'}
+						= link_to "What if I don't have a Google account?", no_google_path, class: 'orange-text'
+	%hr{style: "margin-top: 0;"}
+	.row.features
+		%h3.center{style: "margin: 0 0 20px 0;"}
+			Planning activities with friends on Jupiter is easy
+		.span3.feature
+			%h4.center.teal	Link your calendars
+			= image_tag 'step1.jpg'
+		.span3.feature
+			%h4.center.yellow Tell us what you like to do
+			= image_tag 'step2.jpg'
+		.span3.feature
+			%h4.center.orange Invite friends
+			= image_tag 'step3.jpg'
+		.span3.feature
+			%h4.center.purple Find times that work
+			= image_tag 'step4.jpg'
+	.row{style: "margin-bottom: 23px;"}
+		.span12
+			.center
+				- if @invite
+					%h4.light-text
+						Sign up with your Google account to start planning activities with 
+						= @invite.sender.name
+				- else
+					%h4.light-text 
+						Sign up with your Google account and let Jupiter find times and suggest fun plans for you and your busy friends
+				%div.cta
+					= link_to "Join Jupiter", "/auth/google_oauth2", class: 'btn btn-warning btn-large'
+				%div
+					= link_to "What if I don't have a Google account?", no_google_path, class: 'orange-text'
