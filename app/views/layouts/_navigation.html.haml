@@ -1,6 +1,6 @@
 #user_nav
   .container
-    .logo.pull-left= link_to image_tag('jupiter-logo.png', alt: "Jupiter"), root_url
+    .logo.pull-left= link_to image_tag('jupiter-logo.png', alt: "Jupiter"), root_url, onclick: "_gaq.push(['_trackEvent', 'Navigation', 'Click', 'Logo']);"
     %h5.pull-right{style: "margin-top: 7px;"}
       - if current_user
         Hello,
