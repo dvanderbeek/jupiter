@@ -1,8 +1,8 @@
 .container
-	.row{style: "margin-bottom: 23px;"}
+	.row
 		.span12
-			.center{style: "margin-top: 30px;"}
-				%h1.headline
+			.center
+				%h1.headline{style: "margin: 20px 0 40px 0;"}
 					You want to get together with friends.  
 					%span.teal-text Let us plan it!
 	.row
@@ -53,5 +53,5 @@
 						Sign up with your Google account and let Jupiter find times and suggest fun plans for you and your busy friends
 				%div.cta
 					= link_to "Join Jupiter", "/auth/google_oauth2", class: 'btn btn-warning btn-large'
-				%div
-					= link_to "What if I don't have a Google account?", no_google_path, class: 'orange-text'
+					%div{style: 'margin-top: 10px;'}
+						= link_to "What if I don't have a Google account?", no_google_path, class: 'orange-text'
