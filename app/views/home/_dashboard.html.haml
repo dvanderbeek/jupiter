@@ -23,6 +23,6 @@
               = check_box_tag "calendars[]", calendar.id, current_user.calendars.where(calendar_id: calendar.id).length > 0
               = calendar.summary
         .clearfix
-        = submit_tag "Next", class: "btn btn-warning pull-right"
+        = submit_tag "Next", class: "btn btn-warning pull-right", onclick: "_gaq.push(['_trackEvent', 'LinkCalendars', 'Click', 'Next']);"
     
 

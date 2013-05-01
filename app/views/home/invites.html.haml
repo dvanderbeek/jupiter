@@ -16,7 +16,7 @@
             .row-fluid
               .span4
                 - button_text = current_user.contacts.nil? ? "Import Contacts" : "Imported Contacts"
-                = link_to button_text, "#import-contacts", data: {toggle: 'tab'}, class: 'btn'
+                = link_to button_text, "#import-contacts", data: {toggle: 'tab'}, class: 'btn', onclick: "_gaq.push(['_trackEvent', 'InviteFriends', 'Click', 'ImportContactsTab']);"
               .span4.center{style: 'line-height: 30px; font-weight: bold;'}
                 Invite List
           %div{style: "padding: 5px; background: #F9F9F9; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;"}
@@ -24,7 +24,7 @@
             = form_tag "#", id: "invite-email-form", remote: true, class: "no-margin" do
               .input-append{style: "margin: 0;"}
                 = text_field_tag "email", '', class: "span10", id: "invite-email-field", placeholder: "Friend's Email", style: "margin: 0;"
-                = submit_tag "Add Friend", class: 'btn btn-warning', id: "invite-email-button"
+                = submit_tag "Add Friend", class: 'btn btn-warning', id: "invite-email-button", onclick: "_gaq.push(['_trackEvent', 'InviteFriends', 'Click', 'AddFriendByEmail']);"
           %div#invite-list
             .some-content-related-div
               .slimscroll
@@ -36,7 +36,7 @@
           %div{style: "padding: 5px;"}
             .row-fluid
               .span4{style: "height: 30px;"}
-                = link_to "", "#invite-list", id: "invite-btn", data: {toggle: 'tab'}
+                = link_to "", "#invite-list", id: "invite-btn", data: {toggle: 'tab'}, onclick: "_gaq.push(['_trackEvent', 'InviteFriends', 'Click', 'InviteListTab']);"
               .span4.center{style: 'line-height: 30px; font-weight: bold;'}
                 Import Contacts
               .span4
@@ -50,11 +50,11 @@
               - else
                 .span4{style: 'line-height: 30px;'}
                   = image_tag 'gmail-logo.png'
-                  = link_to 'Refresh', 'contacts/gmail'
+                  = link_to 'Refresh', 'contacts/gmail', onclick: "_gaq.push(['_trackEvent', 'InviteFriends', 'Click', 'RefreshContacts']);"
                 .span4.center
                   .row-fluid
                     = text_field_tag "search", '', class: "span10", id: "search-contacts", placeholder: "Search Contacts", style: "margin: 0;" unless current_user.contacts.nil?
-                    = link_to raw("&times;"), "", class: "btn pull-right", id: "clear-search-contacts"
+                    = link_to raw("&times;"), "", class: "btn pull-right", id: "clear-search-contacts", onclick: "_gaq.push(['_trackEvent', 'InviteFriends', 'Click', 'ClearSearch']);"
                 .span4
           - if current_user.contacts.nil?
             = link_to raw('<div class="gmail-import"><img src="assets/gmail-large.png" /></div>'), 'contacts/gmail'
@@ -67,8 +67,8 @@
                       %tr.contact
                         %td.name= contact[:name]
                         %td.email= contact[:email]
-                        %td.button-cell{style: 'width: 80px;'}= link_to 'Add to List', "#", class: 'btn btn-mini invite-button'
+                        %td.button-cell{style: 'width: 80px;'}= link_to 'Add to List', "#", class: 'btn btn-mini invite-button', onclick: "_gaq.push(['_trackEvent', 'InviteFriends', 'Click', 'AddToList']);"
       %div{style: 'margin: 10px 0;'}
-        = link_to "Previous", "/activities", class: "btn"
-        = link_to "Send Invitations", "#", class: "btn btn-warning pull-right", id: "send-invites"
-        = link_to "Done Inviting Friends", invitations_path, class: 'btn pull-right', style: "margin-right: 15px;"
+        = link_to "Previous", "/activities", class: "btn", onclick: "_gaq.push(['_trackEvent', 'InviteFriends', 'Click', 'Previous']);"
+        = link_to "Send Invitations", "#", class: "btn btn-warning pull-right", id: "send-invites", onclick: "_gaq.push(['_trackEvent', 'InviteFriends', 'Click', 'SendInvites']);"
+        = link_to "Done Inviting Friends", invitations_path, class: 'btn pull-right', style: "margin-right: 15px;", onclick: "_gaq.push(['_trackEvent', 'InviteFriends', 'Click', 'DoneInviting']);"

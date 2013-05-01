@@ -6,9 +6,9 @@
         Hello,
         = succeed "" do
           %span{style: "margin-right: 20px;"}= current_user.name
-        = link_to "Sign out", signout_path, id: "sign_out", class: "btn btn-warning"
+        = link_to "Sign out", signout_path, id: "sign_out", class: "btn btn-warning", onclick: "_gaq.push(['_trackEvent', 'Navigation', 'Click', 'SignOut']);"
       - else
         %span{style: "margin-right: 20px;"} Already have an account?
-        = link_to "Sign in with Google", "/auth/google_oauth2", class: "btn btn-warning"
+        = link_to "Sign in with Google", "/auth/google_oauth2", class: "btn btn-warning", onclick: "_gaq.push(['_trackEvent', 'Navigation', 'Click', 'SignInWithGoogle']);"
     .clearfix
     %hr

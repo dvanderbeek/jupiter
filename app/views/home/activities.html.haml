@@ -21,5 +21,5 @@
             = check_box_tag "user[activity_ids][]", activity.id, current_user.activity_ids.include?(activity.id), id: dom_id(activity)
             = activity.name
         .clearfix
-        = link_to "Previous", root_url, class: "btn"
-        = submit_tag "Next", class: "btn btn-warning pull-right"
+        = link_to "Previous", root_url, class: "btn", onclick: "_gaq.push(['_trackEvent', 'Activities', 'Click', 'Previous']);"
+        = submit_tag "Next", class: "btn btn-warning pull-right", onclick: "_gaq.push(['_trackEvent', 'Activities', 'Click', 'Next']);"
