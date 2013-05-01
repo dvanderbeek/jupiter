@@ -1,0 +1,16 @@
+.container
+	%h1 Users
+	.slimscroll
+		%table.table.table-striped.no-margin
+			%thead
+				%th Email
+				%th # of Calendars
+				%th # of Activities
+				%th # of Sent Invites
+			%tbody 
+			- User.all.each do |user|
+				%tr 
+					%td= user.email
+					%td= user.calendars.length
+					%td= user.activities.length
+					%td= user.sent_invitations.length
