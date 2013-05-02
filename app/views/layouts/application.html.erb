@@ -22,6 +22,25 @@
       <%= image_tag 'footer.jpg' %>
     </div>
   </div>
+
+  <!-- UserVoice JavaScript SDK (only needed once on a page) -->
+  <script>(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/yFX6Jc38pzvPWCe9Kmn1mQ.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})()</script>
+
+  <!-- A tab to launch the Classic Widget -->
+  <script>
+  UserVoice = window.UserVoice || [];
+  UserVoice.push(['showTab', 'classic_widget', {
+    mode: 'feedback',
+    primary_color: '#cc6d00',
+    link_color: '#007dbf',
+    forum_id: 205149,
+    tab_label: 'Feedback',
+    tab_color: '#f16920',
+    tab_position: 'bottom-right',
+    tab_inverted: false
+  }]);
+  </script>
+
 <% if Rails.env.production? %>
   <script type="text/javascript">
 
